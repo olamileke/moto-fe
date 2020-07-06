@@ -1,0 +1,16 @@
+form
+{
+    border-color:rgba(0,0,0,0.06);
+    border-radius:10px 70px 70px 10px;
+}
+
+input
+{
+    border-color:rgba(0,0,0,0.06);
+}
+
+input:focus
+{
+    background:rgba(0,0,0,0.007);
+    /* border-color:rgba(0,0,0,0.09); */
+}
