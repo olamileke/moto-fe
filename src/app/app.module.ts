@@ -13,12 +13,18 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthComponent } from './components/auth/auth.component';
+import { DashboardParentComponent } from './components/dashboard-parent/dashboard-parent.component';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AuthComponent
+    AuthComponent,
+    DashboardParentComponent,
+    AdminDashboardComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

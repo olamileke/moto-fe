@@ -53,10 +53,18 @@ export class AuthComponent implements OnInit {
   }
 
   signup(form:FormGroup): void {
-    this.user.post(form.value, this.admin).subscribe((res:UserData) => {
-        console.log(res);
+    this.user.create(form.value, this.admin).subscribe((res:UserData) => {
         this.notif.success('Visit your email to complete the process');
        form.reset();
+    })
+  }
+
+  login(form:FormGroup): void {
+    this.user.authenticate(form.value).subscribe((res:UserData) => {
+        localStorage.setItem('moto_user', JSON.stringify(res.data.user));
+        localStorage.setItem('moto_token', res.data.token);
+        this.router.navigate(['/dashboard']);
+        this.notif.success('Logged in successfully');
     })
   }
 

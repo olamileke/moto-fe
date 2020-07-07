@@ -9,9 +9,24 @@ export class UserService {
     
     constructor(private http:HttpClient) {} 
 
-    post(data:any, admin:boolean): Observable<UserData> {
+    create(data:any, admin:boolean): Observable<UserData> {
         const url = environment.api_url + 'users?admin=' + admin;
         return this.http.post<UserData>(url, data, this.httpOptions);
+    }
+
+    authenticate(data:any): Observable<UserData> {
+        const url = environment.api_url + 'authenticate';
+        return this.http.post<UserData>(url, data, this.httpOptions);
+    } 
+
+    isAuth():boolean {
+        const token = localStorage.getItem('moto_token');
+
+        if(!token) {
+            return false;
+        }
+
+        return true;
     }
 
     httpOptions = {
