@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotifService } from '../../services/notif.service';
+import { UserService } from '../../services/user.service';
+import { UserData } from '../../models/user.data';
 
 @Component({
   selector: 'app-auth',
@@ -9,7 +12,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class AuthComponent implements OnInit {
 
-  constructor(private router:Router, private route:ActivatedRoute, private fb:FormBuilder) { }
+  constructor(private router:Router, private route:ActivatedRoute, private fb:FormBuilder, 
+  private user:UserService, private notif:NotifService) { }
   
   authType:string;
   signupForm:FormGroup;
@@ -27,7 +31,6 @@ export class AuthComponent implements OnInit {
         this.authType = type; 
 
         document.URL.includes('admin') ? this.admin = true : this.admin = false;
-
         this.createSignupForm();
         this.createLoginForm();
     }
@@ -46,6 +49,14 @@ export class AuthComponent implements OnInit {
     this.loginForm = this.fb.group({
         email:['', [Validators.required, Validators.email]],
         password:['', [Validators.required, Validators.minLength(8)]]
+    })
+  }
+
+  signup(form:FormGroup): void {
+    this.user.post(form.value, this.admin).subscribe((res:UserData) => {
+        console.log(res);
+        this.notif.success('Visit your email to complete the process');
+       form.reset();
     })
   }
 
