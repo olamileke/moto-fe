@@ -16,6 +16,10 @@ import { AuthComponent } from './components/auth/auth.component';
 import { DashboardParentComponent } from './components/dashboard-parent/dashboard-parent.component';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
+import { VehiclesComponent } from './components/vehicles/vehicles.component';
+import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AuthComponent,
     DashboardParentComponent,
     AdminDashboardComponent,
-    DashboardComponent
+    DashboardComponent,
+    AdminSidebarComponent,
+    VehiclesComponent,
+    AddVehicleComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

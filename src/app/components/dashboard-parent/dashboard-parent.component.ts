@@ -8,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardParentComponent implements OnInit {
 
   constructor() { }
+  admin:boolean;
 
   ngOnInit(): void {
+    this.determineDashboard();
+  }
+
+  determineDashboard(): void {
+    const moto_user = JSON.parse(localStorage.getItem('moto_user'));
+    this.admin = moto_user.admin;
   }
 
 }

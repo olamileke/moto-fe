@@ -11,12 +11,12 @@ export class UserService {
 
     create(data:any, admin:boolean): Observable<UserData> {
         const url = environment.api_url + 'users?admin=' + admin;
-        return this.http.post<UserData>(url, data, this.httpOptions);
+        return this.http.post<UserData>(url, data);
     }
 
     authenticate(data:any): Observable<UserData> {
         const url = environment.api_url + 'authenticate';
-        return this.http.post<UserData>(url, data, this.httpOptions);
+        return this.http.post<UserData>(url, data);
     } 
 
     isAuth():boolean {
@@ -27,9 +27,5 @@ export class UserService {
         }
 
         return true;
-    }
-
-    httpOptions = {
-        headers:new HttpHeaders({ 'Content-Type':'application/json' })
     }
 }
