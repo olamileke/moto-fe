@@ -4,3 +4,10 @@
 {
     box-shadow:0px 3px 8px 3px rgba(0,0,0,0.1);
 }
+
+.form__shadow
+{
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
+}

@@ -1,15 +1,15 @@
 
 <div class='grid grid-cols-12 quicksand mt-3'>
-    <div class='col-start-3 col-end-10 pt-10 flex flex-col'>
-        <div class='mb-5 text-gray-800 font-semibold' style='border-color: rgba(0,0,0,0.03);'>
-            <i class='fa fa-car mr-3'></i>Add a new vehicle
+    <div class='col-start-3 col-end-10 pt-8 flex flex-col'>
+        <div class='mb-2 bg-white p-5 shadow-md text-gray-600' style='border-color: rgba(0,0,0,0.03);'>
+            Add a new vehicle
         </div>
-        <div class='bg-white border shadow-md rounded-md' style='border-color: rgba(0,0,0,0.03); border-radius:10px 50px 50px 10px'>
+        <div class='bg-white border shadow-md' style='border-color: rgba(0,0,0,0.03);'>
             <div class='px-6 py-8'>
                 <form [formGroup]='addForm' (ngSubmit)='submit(addForm)'>
                     <div class='flex flex-col mb-5'>
                         <label for='model' class='text-gray-600 text-sm mb-2'>model</label>
-                        <input id='model' formControlName='model' class='capitalize text-gray-600 rounded-md focus:outline-none border p-3'>
+                        <input id='model' formControlName='model' class='capitalize text-gray-600 focus:outline-none border p-3'>
                     </div>
                     <div class='mb-5 flex flex-row items-end'>
                         <img src='' class='rounded w-0 h-0 transition-all duration-300 ease-in' [ngClass]="{'mr-3':imageUploaded, 'w-10':imageUploaded, 'h-10':imageUploaded}" #vehicleImage>
@@ -18,9 +18,9 @@
                     </div>
                     <div class='flex flex-col mb-5'>
                         <label for='plate_number' class='text-gray-600 text-sm mb-2'>plate number</label>
-                        <input id='plate_number' formControlName='plate_number' class='lowercase text-gray-600 rounded-md focus:outline-none border p-3'>
+                        <input id='plate_number' formControlName='plate_number' class='lowercase text-gray-600 focus:outline-none border p-3'>
                     </div>
-                    <div class=''>
+                    <div>
                         <button class='focus:outline-none p-2 text-white text-base rounded' style='background:#52796f' [disabled]='addForm.invalid'>add vehicle</button>
                     </div>
                 </form>

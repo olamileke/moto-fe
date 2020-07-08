@@ -7,6 +7,8 @@
         <div class='col-span-10'>
             <app-header></app-header>
             <app-add-vehicle *ngIf='tabs.add_vehicle'></app-add-vehicle>
+            <app-new-route *ngIf='tabs.new_route'></app-new-route>
+            <app-routes *ngIf='tabs.routes'></app-routes>
             <app-vehicles *ngIf='tabs.vehicles'></app-vehicles>
         </div>
     </div>

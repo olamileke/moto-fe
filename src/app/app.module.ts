@@ -20,6 +20,8 @@ import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.
 import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.component';
 import { HeaderComponent } from './components/header/header.component';
+import { NewRouteComponent } from './components/new-route/new-route.component';
+import { RoutesComponent } from './components/routes/routes.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { HeaderComponent } from './components/header/header.component';
     AdminSidebarComponent,
     VehiclesComponent,
     AddVehicleComponent,
-    HeaderComponent
+    HeaderComponent,
+    NewRouteComponent,
+    RoutesComponent
   ],
   imports: [
     BrowserModule,

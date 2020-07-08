@@ -15,4 +15,9 @@ export class VehicleService {
 
         return this.http.post<VehicleData>(url, data);
     }
+
+    get(admin:boolean): Observable<VehiclesData> {
+        const url = environment.api_url + 'vehicles?admin=' + admin;
+        return this.http.get<VehiclesData>(url);
+    }
 }
