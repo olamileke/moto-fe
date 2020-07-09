@@ -8,7 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
   constructor() { }
-  tabs = { pending:true, all_requests:false, report:false, routes:false, vehicles:false, maintenance:false }
+  tabs = { all_requests:true, report:false, routes:false, vehicles:false, maintenance:false }
   @Output() switchTab = new EventEmitter();
 
   ngOnInit(): void {

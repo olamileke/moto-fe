@@ -11,7 +11,7 @@ module.exports = {
           colors:{
               'honeydew':'#EBF5DF',
               'teagreen':'#BAD4AA',
-              'palespring':'#D4D4AA'
+              'coppergreen':'#52796f'
           },
           height:{
               '1/4':'25%',

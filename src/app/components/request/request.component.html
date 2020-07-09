@@ -6,7 +6,7 @@
         </div>
         <div class='bg-white border shadow-md' style='border-color: rgba(0,0,0,0.03);'>
             <div class='px-6 py-8'>
-                <form [formGroup]='requestForm'>
+                <form [formGroup]='requestForm' (ngSubmit)='submit(requestForm)'>
                     <div class='flex flex-col mb-5'>
                         <label for='route' class='text-gray-600 text-sm mb-2'>route</label>
                         <select id='route' formControlName='routeID' class='focus:outline-none text-gray-600 border p-3'>
@@ -25,3 +25,5 @@
         </div>
     </div>
 </div>
+
+<img src='/assets/images/requests/reply.png' (click)='viewVehicles()' class='back__icon'>

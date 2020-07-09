@@ -63,4 +63,12 @@ export class AddVehicleComponent implements OnInit {
         reader.readAsDataURL(file);
     }
   }
+
+  get model(): any {
+    return this.addForm.get('model');
+  }
+
+  get plate_number(): any {
+    return this.addForm.get('plate_number');
+  }
 }

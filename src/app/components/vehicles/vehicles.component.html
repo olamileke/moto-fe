@@ -1,5 +1,5 @@
 
-<div class='grid grid-cols-12 quicksand mt-3' *ngIf='dataFetched'>
+<div class='grid grid-cols-12 quicksand px-5 mt-3' *ngIf='dataFetched'>
     <div class='col-start-2 col-end-12 grid grid-cols-12 flex flex-col'>
         <div class='col-span-4 mx-2 mb-4 flex flex-col' *ngFor='let vehicle of vehicles'>
             <div class='relative'>
@@ -12,13 +12,16 @@
                 <p class='m-0'>{{ getDate(vehicle.created_at) }}</p>
 
                 <div class='flex flex-row mt-2' *ngIf='admin'>
-                    <div>
+                    <div *ngIf='!vehicle.pending'>
                         <a class='cursor-pointer mr-2'>edit</a>
                         <a class='cursor-pointer'>delete</a>
                     </div>
+                    <div class='text-coppergreen font-semibold' *ngIf='vehicle.pending'>
+                        pending request
+                    </div>
                 </div>
-                <div class='flex flex-row mt-3' *ngIf='!admin'>
-                    <a class='cursor-pointer text-sm p-2 shadow text-white rounded' (click)='request(vehicle)' style='background:#52796f'>get vehicle</a>
+                <div class='flex flex-row mt-2' *ngIf='!admin'>
+                    <a class='cursor-pointer text-black rounded' (click)='request(vehicle)'>request</a>
                 </div>
             </div>
         </div>

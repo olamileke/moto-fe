@@ -10,6 +10,7 @@
                     <div class='flex flex-col mb-5'>
                         <label for='model' class='text-gray-600 text-sm mb-2'>model</label>
                         <input id='model' formControlName='model' class='capitalize text-gray-600 focus:outline-none border p-3'>
+                        <p class='text-xs mt-2' style='color:#EA3C53' *ngIf='model.dirty && model.invalid'>model must be at least 6 characters</p>
                     </div>
                     <div class='mb-5 flex flex-row items-end'>
                         <img src='' class='rounded w-0 h-0 transition-all duration-300 ease-in' [ngClass]="{'mr-3':imageUploaded, 'w-10':imageUploaded, 'h-10':imageUploaded}" #vehicleImage>
@@ -19,9 +20,10 @@
                     <div class='flex flex-col mb-5'>
                         <label for='plate_number' class='text-gray-600 text-sm mb-2'>plate number</label>
                         <input id='plate_number' formControlName='plate_number' class='lowercase text-gray-600 focus:outline-none border p-3'>
+                        <p class='text-xs mt-2' style='color:#EA3C53' *ngIf='plate_number.dirty && plate_number.invalid'>plate number must be at least 7 characters</p>
                     </div>
                     <div>
-                        <button class='focus:outline-none p-2 text-white text-base rounded' style='background:#52796f' [disabled]='addForm.invalid'>add vehicle</button>
+                        <button class='focus:outline-none bg-coppergreen btn px-3 py-2 text-white text-base rounded' [disabled]='addForm.invalid'>add vehicle</button>
                     </div>
                 </form>
             </div>

@@ -1,11 +1,12 @@
 
 <div class='w-screen min-h-screen' style='background:rgba(0,0,0,0.009)'>
     <div class='grid grid-cols-12'>
-        <div class='col-span-2 h-screen pt-24' style='background:#52796f'>
+        <div class='h-screen pt-24 sidebar' style='background:#52796f'>
             <app-admin-sidebar (switchTab)="switchTab($event)"></app-admin-sidebar>
         </div>
-        <div class='col-span-10'>
+        <div class='col-span-12 main'>
             <app-header></app-header>
+            <app-all-requests *ngIf='tabs.all_requests'></app-all-requests>
             <app-add-vehicle *ngIf='tabs.add_vehicle'></app-add-vehicle>
             <app-new-route *ngIf='tabs.new_route'></app-new-route>
             <app-routes *ngIf='tabs.routes'></app-routes>

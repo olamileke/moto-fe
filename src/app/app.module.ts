@@ -25,6 +25,8 @@ import { RoutesComponent } from './components/routes/routes.component';
 import { DriversComponent } from './components/drivers/drivers.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { RequestComponent } from './components/request/request.component';
+import { SingleRequestComponent } from './components/single-request/single-request.component';
+import { AllRequestsComponent } from './components/all-requests/all-requests.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { RequestComponent } from './components/request/request.component';
     RoutesComponent,
     DriversComponent,
     SidebarComponent,
-    RequestComponent
+    RequestComponent,
+    SingleRequestComponent,
+    AllRequestsComponent
   ],
   imports: [
     BrowserModule,

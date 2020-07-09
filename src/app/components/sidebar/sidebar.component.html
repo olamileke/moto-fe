@@ -1,18 +1,10 @@
 
 
 <div class='quicksand'>
-    <div class='px-6 mb-10'>
-        <button (click)="switch('report')" class='focus:outline-none p-4 text-white rounded text-sm lowercase w-full shadow'>Report issue</button>
-    </div>
-
-    <ul class='px-6 text-white text-sm lowercase'>
-        <li [class.shadow]='tabs.pending || tabs.report' (click)="switch('pending')" class='flex flex-row items-center px-4 py-3 rounded mb-3 cursor-pointer'>
-            <i class='fa fa-recycle mr-5'></i>
-            <p class='m-0'>active requests</p>
-        </li>
+    <ul class='px-6 text-white text-sm lowercase pt-10'>
         <li [class.shadow]='tabs.all_requests' (click)="switch('all_requests')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-tasks mr-5'></i>
-            <p class='m-0'>all requests</p>
+            <p class='m-0'>requests</p>
         </li>
         <li [class.shadow]='tabs.routes' (click)="switch('routes')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-road mr-5'></i>
@@ -21,6 +13,10 @@
         <li [class.shadow]='tabs.vehicles' (click)="switch('vehicles')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-car mr-5'></i>
             <p class='m-0'>Vehicles</p>
+        </li>
+        <li [class.shadow]='tabs.report' (click)="switch('report')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
+            <i class='fa fa-car mr-5'></i>
+            <p class='m-0'>Report Issue</p>
         </li>
         <li [class.shadow]='tabs.maintenance' (click)="switch('maintenance')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-tools mr-5'></i>

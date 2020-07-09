@@ -10,7 +10,7 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
-  tabs = { pending:true, all_requests:false, request:false, report:false, routes:false, vehicles:false, maintenance:false }
+  tabs = { all_requests:true, request:false, report:false, routes:false, vehicles:false, maintenance:false }
   selectedVehicle:Vehicle;
 
   ngOnInit(): void {
