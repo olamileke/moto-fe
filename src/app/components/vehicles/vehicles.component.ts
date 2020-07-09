@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { VehicleService } from '../../services/vehicle.service';
 import { VehiclesData } from '../../models/vehicles.data';
 import { Vehicle } from '../../models/vehicle';
@@ -15,25 +15,39 @@ export class VehiclesComponent implements OnInit {
   constructor(private vehicle:VehicleService, private date:DateService) { }
   admin:boolean;
   vehicles:Vehicle[];
+  dataFetched:boolean = false;
+  @Output() requestVehicle = new EventEmitter();
 
   ngOnInit(): void {
-    this.determineAdmin();
     this.getVehicles();
   }
 
-  determineAdmin(): void {
-    this.admin = JSON.parse(localStorage.getItem('moto_user')).admin;
-  }
-
   getVehicles(): void {
-    this.vehicle.get(true).subscribe((res:VehiclesData) => {
+    this.admin = JSON.parse(localStorage.getItem('moto_user')).admin;
+    this.vehicle.get(this.admin).subscribe((res:VehiclesData) => {
         this.vehicles = res.data.vehicles;
-        console.log(res);
+        this.dataFetched = true;
     })
   }
 
   getDate(dateStamp): string {
     return this.date.getString(dateStamp);
   }
+
+  request(vehicle:Vehicle): any {
+    this.requestVehicle.emit(vehicle);
+  }
+
+//   determineInOperation(dateStamp): boolean {
+//     if(!dateStamp) {
+//         return false;
+//     }
+
+//     if(dateStamp < Date.now()) {
+//         return false;
+//     }
+
+//     return true;
+//   }
 
 }

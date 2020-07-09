@@ -4,5 +4,5 @@ export interface Route {
     name:string;
     description:string;
     trips:number;
-    created_at:Date
+    created_at:string | null
 }

@@ -22,6 +22,9 @@ import { AddVehicleComponent } from './components/add-vehicle/add-vehicle.compon
 import { HeaderComponent } from './components/header/header.component';
 import { NewRouteComponent } from './components/new-route/new-route.component';
 import { RoutesComponent } from './components/routes/routes.component';
+import { DriversComponent } from './components/drivers/drivers.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { RequestComponent } from './components/request/request.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { RoutesComponent } from './components/routes/routes.component';
     AddVehicleComponent,
     HeaderComponent,
     NewRouteComponent,
-    RoutesComponent
+    RoutesComponent,
+    DriversComponent,
+    SidebarComponent,
+    RequestComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,27 @@
+
+.options__parent
+{
+    background:rgba(8, 8, 8, 0.4);
+    top:calc(140% + 15px);
+    width:80%;
+    left:15%;
+    opacity:0;
+}
+
+.options__parent.active
+{
+    top:140%;
+    opacity:1;
+}
+
+.options__parent::before
+{
+    position: absolute;
+    top:-24px;
+    display:block;
+    content:'';
+    border:12px solid rgba(0,0,0,0.4);
+    border-left-color:transparent;
+    border-right-color:transparent;
+    border-top-color:transparent;
+}

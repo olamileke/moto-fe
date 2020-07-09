@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Vehicle } from 'src/app/models/vehicle';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,24 @@ export class DashboardComponent implements OnInit {
 
   constructor() { }
 
+  tabs = { pending:true, all_requests:false, request:false, report:false, routes:false, vehicles:false, maintenance:false }
+  selectedVehicle:Vehicle;
+
   ngOnInit(): void {
   }
 
+  
+  switchTab(tab:string, vehicle:Vehicle | null=null) {
+    
+    if(vehicle) {
+        this.selectedVehicle = vehicle;
+    }
+    const tabs = Object.keys(this.tabs);
+
+    tabs.forEach(tab => {
+        this.tabs[tab] = false;
+    })
+
+    this.tabs[tab] = true;
+  }
 }

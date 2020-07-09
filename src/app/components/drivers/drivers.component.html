@@ -1,0 +1,11 @@
+
+<div class='grid grid-cols-12 quicksand mt-3 lowercase'>
+    <div class='col-start-2 col-end-12 grid grid-cols-12 flex flex-col'>
+        <div class='col-span-4 mx-2 mb-4 flex flex-col' *ngFor='let driver of drivers'>
+            <div class='relative'>
+                <img src='{{ driver.avatar }}' class='h-32 w-full object-cover'>
+                <div class='absolute top-0 left-0 w-full h-full' style='background:rgba(0,0,0,0.1)'></div>
+            </div>
+        </div>
+    </div>
+</div>

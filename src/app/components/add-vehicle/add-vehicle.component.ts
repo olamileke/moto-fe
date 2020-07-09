@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
+import { FileService } from '../../services/file.service';
 import { NotifService } from '../../services/notif.service';
 import { VehicleService } from '../../services/vehicle.service';
 import { VehicleData } from '../../models/vehicle.data';
@@ -12,7 +13,7 @@ import { VehicleData } from '../../models/vehicle.data';
 })
 export class AddVehicleComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, private notif:NotifService, private vehicle:VehicleService) { }
+  constructor(private fb:FormBuilder, private notif:NotifService, private file:FileService, private vehicle:VehicleService) { }
 
   addForm:FormGroup;
   @ViewChild('fileInput') fileInput;
@@ -50,7 +51,7 @@ export class AddVehicleComponent implements OnInit {
   setImage(fileInput:any): void {
     const file = fileInput.files[0];
 
-    if(this.validateFile(file)) {
+    if(this.file.validate(file)) {
         const reader = new FileReader();
 
         reader.onload = e => {
@@ -61,22 +62,5 @@ export class AddVehicleComponent implements OnInit {
 
         reader.readAsDataURL(file);
     }
-  }
-
-  validateFile(file:File): boolean {
-    const type = file.type.toLowerCase();
-    const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
-
-    if(!allowedTypes.includes(type)) {
-        this.notif.error('file format not supported!');
-        return false;
-    }
-
-    if(file.size > 6000000) {
-        this.notif.error('image is too large!');
-        return false;
-    }
-
-    return true;
   }
 }

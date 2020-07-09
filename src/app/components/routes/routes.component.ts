@@ -12,7 +12,9 @@ import { DateService } from '../../services/date.service';
 export class RoutesComponent implements OnInit {
 
   constructor(private route:RouteService, private date:DateService) { }
+  
   routes:Route[];
+  dataFetched:boolean = false;
 
   ngOnInit(): void {
     this.getRoutes();
@@ -21,6 +23,7 @@ export class RoutesComponent implements OnInit {
   getRoutes(): void {
     this.route.get().subscribe((res:RoutesData) => {
         this.routes = res.data.routes;
+        this.dataFetched = true;
     })
   }
 
