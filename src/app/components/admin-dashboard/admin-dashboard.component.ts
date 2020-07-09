@@ -9,7 +9,7 @@ export class AdminDashboardComponent implements OnInit {
 
   constructor() { }
 
-  tabs = { add_vehicle:true, pending:false, all_requests:false, new_route:false, routes:false, vehicles:false, drivers:false, maintenance:false }
+  tabs = { add_vehicle:false, requests:true, new_route:false, routes:false, vehicles:false, drivers:false, maintenance:false }
 
   ngOnInit(): void {
   }

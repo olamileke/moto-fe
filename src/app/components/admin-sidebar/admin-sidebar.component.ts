@@ -10,7 +10,7 @@ export class AdminSidebarComponent implements OnInit {
 
   constructor() { }
   user:User;
-  tabs = { add_vehicle:false, pending:true, all_requests:false, new_route:false, routes:false, vehicles:false, drivers:false, maintenance:false }
+  tabs = { add_vehicle:false, requests:true, new_route:false, routes:false, vehicles:false, drivers:false, maintenance:false }
   @Output() switchTab = new EventEmitter();
 
   ngOnInit(): void {

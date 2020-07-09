@@ -1,1 +1,8 @@
-<p>all-requests works!</p>
+
+<div class='grid grid-cols-12 quicksand px-5 mt-3' *ngIf='dataFetched'>
+    <div class='col-start-2 col-end-12 grid grid-cols-12 flex flex-col'>
+        <div class='col-span-4 mx-2 mb-4 flex flex-col' *ngFor='let request of requests'>
+            <app-single-request [request]='request'></app-single-request>
+        </div>
+    </div>
+</div>

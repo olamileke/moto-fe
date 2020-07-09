@@ -15,8 +15,11 @@ export class DateService {
         const year = date.getFullYear();
         const hours = date.getHours();
         const minutes = date.getMinutes();
+        let mins;
 
-        return `${day} ${dt} ${month} ${year}. ${hours}:${minutes}`;
+        String(minutes).length == 1 ? mins = '0' + String(minutes) : mins = String(minutes);
+
+        return `${day} ${dt} ${month} ${year}. ${hours}:${mins}`;
 
     }
 }

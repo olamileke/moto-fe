@@ -3,24 +3,24 @@
     <div class='col-start-2 col-end-12 grid grid-cols-12 flex flex-col'>
         <div class='col-span-4 mx-2 mb-4 flex flex-col' *ngFor='let vehicle of vehicles'>
             <div class='relative'>
-                <img src='{{ vehicle.picture }}' class='h-32 w-full object-cover'>
+                <img src='{{ vehicle.picture }}' class='h-24 w-full object-cover'>
                 <div class='absolute top-0 left-0 w-full h-full' style='background:rgba(0,0,0,0.1)'></div>
             </div>
             <div class='flex p-4 flex-col shadow-md text-gray-800'>
-                <p class='m-0 mb-1 font-semibold capitalize'>{{ vehicle.model }}</p>
-                <p class='m-0 mb-1'>plate number - {{ vehicle.plate_number }}</p>
-                <p class='m-0'>{{ getDate(vehicle.created_at) }}</p>
+                <p class='m-0 mb-1 font-semibold lowercase'>{{ vehicle.model }}. {{ vehicle.plate_number }}</p>
+                <!-- <p class='m-0 mb-1'>plate number - {{ vehicle.plate_number }}</p> -->
+                <p class='m-0'>added {{ getDate(vehicle.created_at) }}</p>
 
-                <div class='flex flex-row mt-2' *ngIf='admin'>
+                <div class='flex flex-row mt-1' *ngIf='admin'>
                     <div *ngIf='!vehicle.pending'>
                         <a class='cursor-pointer mr-2'>edit</a>
                         <a class='cursor-pointer'>delete</a>
                     </div>
-                    <div class='text-coppergreen font-semibold' *ngIf='vehicle.pending'>
-                        pending request
+                    <div class='text-black' *ngIf='vehicle.pending'>
+                       requested
                     </div>
                 </div>
-                <div class='flex flex-row mt-2' *ngIf='!admin'>
+                <div class='flex flex-row mt-1' *ngIf='!admin'>
                     <a class='cursor-pointer text-black rounded' (click)='request(vehicle)'>request</a>
                 </div>
             </div>
