@@ -38,6 +38,18 @@ export class ErrorInterceptor implements HttpInterceptor {
             displayed = true;
         }
 
+        if(url.includes('requests')) {
+            if(error.error.message.includes('pending') && error.status == 403) {
+                this.notif.error('you have a pending vehicle request');
+                displayed = true;
+            }
+
+            if(error.error.message.includes('active') && error.status == 403) {
+                this.notif.error('you are have an active vehicle operation');
+                displayed = true;
+            }
+        }
+
         if(url == 'authenticate') {
             if(error.status == 404) {
                 this.notif.error('incorrect username or password');

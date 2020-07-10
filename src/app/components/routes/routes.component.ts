@@ -15,12 +15,14 @@ export class RoutesComponent implements OnInit {
   
   routes:Route[];
   dataFetched:boolean = false;
+  admin:boolean;
 
   ngOnInit(): void {
     this.getRoutes();
   }
 
   getRoutes(): void {
+    this.admin = JSON.parse(localStorage.getItem('moto_user')).admin;
     this.route.get().subscribe((res:RoutesData) => {
         this.routes = res.data.routes;
         this.dataFetched = true;
