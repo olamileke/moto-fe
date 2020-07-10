@@ -27,6 +27,17 @@ export class ErrorInterceptor implements HttpInterceptor {
             }
         }
 
+        if(url.includes('vehicles') && error.status == 403) {
+            this.notif.error('Vehicle plate number is taken');
+            displayed = true;
+        }
+
+        if(url.includes('routes') && error.status == 403) {
+            const name = error.error.message.split(' ')[0];
+            this.notif.error(`${name} exists already`);
+            displayed = true;
+        }
+
         if(url == 'authenticate') {
             if(error.status == 404) {
                 this.notif.error('incorrect username or password');
