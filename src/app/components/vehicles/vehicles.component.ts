@@ -38,16 +38,16 @@ export class VehiclesComponent implements OnInit {
     this.requestVehicle.emit(vehicle);
   }
 
-//   determineInOperation(dateStamp): boolean {
-//     if(!dateStamp) {
-//         return false;
-//     }
+  determineInOperation(dateStamp): boolean {
+    if(!dateStamp) {
+        return false;
+    }
 
-//     if(dateStamp < Date.now()) {
-//         return false;
-//     }
+    if(dateStamp < Date.now()) {
+        return false;
+    }
 
-//     return true;
-//   }
+    return true;
+  }
 
 }

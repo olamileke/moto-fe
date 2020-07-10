@@ -29,12 +29,13 @@ export class SingleRequestComponent implements OnInit {
     return this.date.getString(dateStamp);
   }
 
-  update(approved:string) {
+  update(approved:boolean) {
     const data = { requestID:this.request._id };
     this.request_service.update(data, approved).subscribe((res:RequestData) => {
-        approved ? this.notif.success('Request approved') : this.notif.error('Request denied');
+
+        if(approved) { this.notif.success('Request granted')} else { this.notif.error('Request denied') };
         this.request.pending = false;
-        this.request.approved = Boolean(approved);
+        this.request.approved = approved;
     })
   }
 

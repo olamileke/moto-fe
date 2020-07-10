@@ -21,7 +21,7 @@ export class RequestService {
         return this.http.get<RequestsData>(url);
     }
 
-    update(data:any, approved:string): Observable<RequestData> {
+    update(data:any, approved:boolean): Observable<RequestData> {
         const url = environment.api_url + 'requests?approved=' + approved;
         return this.http.patch<RequestData>(url, data)        
     }
