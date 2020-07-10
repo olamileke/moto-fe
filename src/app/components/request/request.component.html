@@ -9,13 +9,13 @@
                 <form [formGroup]='requestForm' (ngSubmit)='submit(requestForm)'>
                     <div class='flex flex-col mb-5'>
                         <label for='route' class='text-gray-600 text-sm mb-2'>route</label>
-                        <select id='route' formControlName='routeID' class='focus:outline-none text-gray-600 border p-3'>
+                        <select id='route' formControlName='routeID' class='input focus:outline-none text-gray-600 border p-3'>
                             <option *ngFor='let rt of routes' value='{{ rt._id }}'>{{ rt.name }}</option>
                         </select>
                     </div>
                     <div class='flex flex-col mb-5'>
                         <label for='days' class='text-gray-600 text-sm mb-2'>days</label>
-                        <input type='number' id='days' formControlName='days' class='text-gray-600 focus:outline-none border p-3'>
+                        <input type='number' id='days' formControlName='days' class='input text-gray-600 focus:outline-none border p-3'>
                     </div>
                     <div>
                         <button class='focus:outline-none btn bg-coppergreen p-2 text-white text-base rounded' [disabled]='requestForm.invalid'>request</button>

@@ -5,6 +5,16 @@
     background:rgba(82, 121, 111, 0.85);    
 }
 
+.input
+{
+    border-color:rgba(0,0,0,0.08);
+}
+
+.input:focus
+{
+    background:rgba(0,0,0,0.007);
+}
+
 .back__icon
 {
     position:fixed;

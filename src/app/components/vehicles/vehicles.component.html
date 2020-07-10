@@ -1,31 +1,32 @@
 
 <div class='grid grid-cols-12 quicksand px-5 mt-3' *ngIf='dataFetched'>
     <div class='col-start-2 col-end-12 grid grid-cols-12 flex flex-col'>
-        <div class='col-span-4 mx-2 mb-4 flex flex-col' *ngFor='let vehicle of vehicles'>
-            <div class='relative'>
-                <img src='{{ vehicle.picture }}' class='h-24 w-full object-cover'>
-                <div class='absolute top-0 left-0 w-full h-full' style='background:rgba(0,0,0,0.1)'></div>
-            </div>
-            <div class='flex p-4 flex-col shadow-md text-gray-800'>
-                <p class='m-0 mb-1 font-semibold lowercase'>{{ vehicle.model }}. {{ vehicle.plate_number }}</p>
-                <!-- <p class='m-0 mb-1'>plate number - {{ vehicle.plate_number }}</p> -->
-                <p class='m-0'>added {{ getDate(vehicle.created_at) }}</p>
-
-                <div class='flex flex-row mt-1' *ngIf='admin'>
+        <div class='col-span-4 mx-2 text-gray-800 shadow-md mb-4 p-4 flex flex-col' *ngFor='let vehicle of vehicles'>
+            <div class='mb-3 flex flex-row justify-between items-center'>
+                <div class='relative'>
+                    <img src='{{ vehicle.picture }}' class='h-16 w-16 object-cover'>
+                     <div class='absolute top-0 left-0 w-16 h-full' style='background:rgba(0,0,0,0.1)'></div>
+                </div>
+                <div class='flex flex-row mr-8' *ngIf='admin'>
                     <div *ngIf='!vehicle.pending && !determineInOperation(vehicle.reserved_till)'>
-                        <a class='cursor-pointer mr-2'>edit</a>
-                        <a class='cursor-pointer'>delete</a>
+                        <a class='cursor-pointer underline mr-2' (click)='editVehicle(vehicle)'>edit</a>
+                        <a class='cursor-pointer underline'>delete</a>
                     </div>
-                    <div class='text-black' *ngIf='vehicle.pending'>
+                    <div class='text-black underline' *ngIf='vehicle.pending'>
                        requested
                     </div>
                     <div class='text-black' *ngIf='determineInOperation(vehicle.reserved_till)'>
-                        in use
+                        in operation
                     </div>
                 </div>
-                <div class='flex flex-row mt-1' *ngIf='!admin'>
+                <div class='flex flex-row mr-8' *ngIf='!admin'>
                     <a class='cursor-pointer text-black rounded' (click)='request(vehicle)'>request</a>
                 </div>
+            </div>
+            <div class='flex flex-col'>
+                <p class='m-0 mb-1 lowercase'>{{ vehicle.model }}</p>
+                <p class='m-0 mb-1'>plate number - {{ vehicle.plate_number }}</p>
+                <p class='m-0'>added {{ getDate(vehicle.created_at) }}</p>
             </div>
         </div>
     </div>

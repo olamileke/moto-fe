@@ -9,12 +9,12 @@
                 <form [formGroup]='editForm' (ngSubmit)="submit(editForm)">
                     <div class='flex flex-col mb-5'>
                         <label for='name' class='text-gray-600 text-sm mb-2'>name</label>
-                        <input id='name' formControlName='name' class='lowercase text-gray-600 focus:outline-none border p-3'>
+                        <input id='name' formControlName='name' class='input lowercase text-gray-600 focus:outline-none border p-3'>
                         <p class='text-xs mt-2' style='color:#EA3C53' *ngIf='name.dirty && name.invalid'>name must be at least 6 characters</p>
                     </div> 
                     <div class='flex flex-col mb-5'>
                         <label for='description' class='text-gray-600 text-sm mb-2'>short description</label>
-                        <textarea id='description' formControlName='description' rows='3' class='lowercase p-3 border text-gray-600 focus:outline-none w-full'></textarea>
+                        <textarea id='description' formControlName='description' rows='3' class='input lowercase p-3 border text-gray-600 focus:outline-none w-full'></textarea>
                         <p class='text-xs mt-2' style='color:#EA3C53' *ngIf='description.dirty && description.invalid'>description must be at least 40 characters</p>
                     </div>
                     <div>

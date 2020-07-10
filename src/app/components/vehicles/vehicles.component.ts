@@ -2,7 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { VehicleService } from '../../services/vehicle.service';
 import { VehiclesData } from '../../models/vehicles.data';
 import { Vehicle } from '../../models/vehicle';
-import { VehicleData } from 'src/app/models/vehicle.data';
 import { DateService } from '../../services/date.service';
  
 @Component({
@@ -17,6 +16,7 @@ export class VehiclesComponent implements OnInit {
   vehicles:Vehicle[];
   dataFetched:boolean = false;
   @Output() requestVehicle = new EventEmitter();
+  @Output() edit = new EventEmitter();  
 
   ngOnInit(): void {
     this.getVehicles();
@@ -38,10 +38,11 @@ export class VehiclesComponent implements OnInit {
     this.requestVehicle.emit(vehicle);
   }
 
+  editVehicle(vehicle:Vehicle): void {
+    this.edit.emit(vehicle)
+  }
+
   determineInOperation(dateStamp): boolean {
-    if(!dateStamp) {
-        return false;
-    }
 
     if(dateStamp < Date.now()) {
         return false;

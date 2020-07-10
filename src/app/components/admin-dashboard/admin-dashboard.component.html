@@ -11,7 +11,8 @@
             <app-new-route *ngIf='tabs.new_route'></app-new-route>
             <app-edit-route (viewRoute)="switchTab('routes')" *ngIf='tabs.edit_route' [route]='activeRoute'></app-edit-route>
             <app-routes (edit)="switchTab('edit_route', $event)" *ngIf='tabs.routes'></app-routes>
-            <app-vehicles *ngIf='tabs.vehicles'></app-vehicles>
+            <app-vehicles (edit)="switchTab('edit_vehicle', null, $event)" *ngIf='tabs.vehicles'></app-vehicles>
+            <app-edit-vehicle [vehicle]='activeVehicle' (viewVehicles)="switchTab('vehicles')" *ngIf='tabs.edit_vehicle'></app-edit-vehicle>
             <app-drivers *ngIf='tabs.drivers'></app-drivers>
         </div>
     </div>

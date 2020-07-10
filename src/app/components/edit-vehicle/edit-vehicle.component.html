@@ -1,1 +1,34 @@
-<p>edit-vehicle works!</p>
+
+<div class='grid grid-cols-12 quicksand mt-3'>
+    <div class='col-start-3 col-end-10 pt-8 flex flex-col'>
+        <div class='mb-2 bg-white p-5 shadow-md text-gray-600' style='border-color: rgba(0,0,0,0.03);'>
+            Edit the {{ vehicle.model }}
+        </div>
+        <div class='bg-white border shadow-md' style='border-color: rgba(0,0,0,0.03);'>
+            <div class='px-6 py-8'>
+                <form [formGroup]='editForm' (ngSubmit)='submit(editForm)'>
+                    <div class='flex flex-col mb-5'>
+                        <label for='model' class='text-gray-600 text-sm mb-2'>model</label>
+                        <input id='model' formControlName='model' class='input lowercase text-gray-600 focus:outline-none border p-3'>
+                        <p class='text-xs mt-2' style='color:#EA3C53' *ngIf='model.dirty && model.invalid'>model must be at least 6 characters</p>
+                    </div>
+                    <div class='mb-5 flex flex-row items-end'>
+                        <img src='' class='rounded w-0 h-0 transition-all duration-300 ease-in' [ngClass]="{'mr-3':imageUploaded, 'w-10':imageUploaded, 'h-10':imageUploaded}" #vehicleImage>
+                        <a class='text-gray-600 text-sm text-gray-700 cursor-pointer' (click)='fileClick()'>add image</a>
+                        <input type='file' (change)='setImage($event.target)' #fileInput hidden>
+                    </div>
+                    <div class='flex flex-col mb-5'>
+                        <label for='plate_number' class='text-gray-600 text-sm mb-2'>plate number</label>
+                        <input id='plate_number' formControlName='plate_number' class='input lowercase text-gray-600 focus:outline-none border p-3'>
+                        <p class='text-xs mt-2' style='color:#EA3C53' *ngIf='plate_number.dirty && plate_number.invalid'>plate number must be at least 9 characters</p>
+                    </div>
+                    <div>
+                        <button class='focus:outline-none bg-coppergreen btn px-3 py-2 text-white text-base rounded' [disabled]='editForm.invalid'>update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<img src='/assets/images/requests/reply.png' (click)='view()' class='back__icon'>

@@ -29,7 +29,7 @@ export class AddVehicleComponent implements OnInit {
   createForm(): void {
     this.addForm = this.fb.group({
         model:['', [Validators.required, Validators.minLength(6)]],
-        plate_number:['', [Validators.required, Validators.minLength(7)]]
+        plate_number:['', [Validators.required, Validators.minLength(9)]]
     })
   }
 
