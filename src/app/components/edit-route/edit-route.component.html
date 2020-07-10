@@ -2,26 +2,28 @@
 <div class='grid grid-cols-12 quicksand mt-3'>
     <div class='col-start-3 col-end-10 pt-8 flex flex-col'>
         <div class='mb-2 bg-white p-5 shadow-md text-gray-600' style='border-color: rgba(0,0,0,0.03);'>
-            Add a new route
+            Edit the {{ route.name }}
         </div>
         <div class='bg-white border shadow-md' style='border-color: rgba(0,0,0,0.03);'>
             <div class='px-6 py-8'>
-                <form [formGroup]='newForm' (ngSubmit)="submit(newForm)">
+                <form [formGroup]='editForm' (ngSubmit)="submit(editForm)">
                     <div class='flex flex-col mb-5'>
                         <label for='name' class='text-gray-600 text-sm mb-2'>name</label>
                         <input id='name' formControlName='name' class='lowercase text-gray-600 focus:outline-none border p-3'>
                         <p class='text-xs mt-2' style='color:#EA3C53' *ngIf='name.dirty && name.invalid'>name must be at least 6 characters</p>
-                    </div>
+                    </div> 
                     <div class='flex flex-col mb-5'>
                         <label for='description' class='text-gray-600 text-sm mb-2'>short description</label>
                         <textarea id='description' formControlName='description' rows='3' class='lowercase p-3 border text-gray-600 focus:outline-none w-full'></textarea>
                         <p class='text-xs mt-2' style='color:#EA3C53' *ngIf='description.dirty && description.invalid'>description must be at least 40 characters</p>
                     </div>
                     <div>
-                        <button class='focus:outline-none px-3 py-2 bg-coppergreen btn text-white text-base rounded' [disabled]='newForm.invalid'>create</button>
+                        <button class='focus:outline-none px-3 py-2 bg-coppergreen btn text-white text-base rounded' [disabled]='editForm.invalid'>update</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<img src='/assets/images/requests/reply.png' (click)='view()' class='back__icon'>

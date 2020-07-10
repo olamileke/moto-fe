@@ -28,6 +28,8 @@ import { RequestComponent } from './components/request/request.component';
 import { SingleRequestComponent } from './components/single-request/single-request.component';
 import { AllRequestsComponent } from './components/all-requests/all-requests.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { EditRouteComponent } from './components/edit-route/edit-route.component';
+import { EditVehicleComponent } from './components/edit-vehicle/edit-vehicle.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { LoaderComponent } from './components/loader/loader.component';
     RequestComponent,
     SingleRequestComponent,
     AllRequestsComponent,
-    LoaderComponent
+    LoaderComponent,
+    EditRouteComponent,
+    EditVehicleComponent
   ],
   imports: [
     BrowserModule,

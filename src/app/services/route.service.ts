@@ -11,12 +11,17 @@ export class RouteService {
     constructor(private http:HttpClient) {}
 
     create(data:any): Observable<RouteData> {
-        const url = environment.api_url + 'routes?admin=true';
+        const url = environment.api_url + 'routes';
         return this.http.post<RouteData>(url, data);
     }
 
     get(): Observable<RoutesData> {
-        const url = environment.api_url + 'routes?admin=true';
+        const url = environment.api_url + 'routes';
         return this.http.get<RoutesData>(url);
     }
+
+    edit(data:any, routeID): Observable<RouteData> {
+        const url = environment.api_url + 'routes/' + String(routeID);
+        return this.http.put<RouteData>(url, data);
+    }   
 }

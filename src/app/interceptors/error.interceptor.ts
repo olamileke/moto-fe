@@ -32,11 +32,23 @@ export class ErrorInterceptor implements HttpInterceptor {
             displayed = true;
         }
 
-        if(url.includes('routes') && error.status == 403) {
+        if(url == 'routes' && error.status == 403) {
             const name = error.error.message.split(' ')[0];
             this.notif.error(`${name} exists already`);
             displayed = true;
         }
+
+        if(url.includes('routes') && url.length > 6) {
+            if(error.error.message.includes('pending') && error.status == 403) {
+                this.notif.error('there is a pending request on this route');
+                displayed = true;
+            }
+
+            if(error.error.message.includes('plying') && error.status == 403) {
+                this.notif.error('there is an active operation on this route');
+                displayed = true;
+            }
+        } 
 
         if(url.includes('requests')) {
             if(error.error.message.includes('pending') && error.status == 403) {

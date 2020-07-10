@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RouteService } from '../../services/route.service';
 import { RoutesData } from '../../models/routes.data';
 import { Route } from '../../models/route';
@@ -16,6 +16,7 @@ export class RoutesComponent implements OnInit {
   routes:Route[];
   dataFetched:boolean = false;
   admin:boolean;
+  @Output() edit = new EventEmitter();
 
   ngOnInit(): void {
     this.getRoutes();
@@ -31,6 +32,10 @@ export class RoutesComponent implements OnInit {
 
   getDateString(dateStamp):string {
     return this.date.getString(dateStamp);
+  }
+
+  editRoute(route:Route) {
+    this.edit.emit(route);
   }
 
 }

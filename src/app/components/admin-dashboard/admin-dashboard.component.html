@@ -9,7 +9,8 @@
             <app-all-requests *ngIf='tabs.requests'></app-all-requests>
             <app-add-vehicle *ngIf='tabs.add_vehicle'></app-add-vehicle>
             <app-new-route *ngIf='tabs.new_route'></app-new-route>
-            <app-routes *ngIf='tabs.routes'></app-routes>
+            <app-edit-route (viewRoute)="switchTab('routes')" *ngIf='tabs.edit_route' [route]='activeRoute'></app-edit-route>
+            <app-routes (edit)="switchTab('edit_route', $event)" *ngIf='tabs.routes'></app-routes>
             <app-vehicles *ngIf='tabs.vehicles'></app-vehicles>
             <app-drivers *ngIf='tabs.drivers'></app-drivers>
         </div>
