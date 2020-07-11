@@ -4,7 +4,6 @@ export interface User {
     email:string,
     admin:boolean,
     avatar:string,
-    trips:number | null
-    busy_till:string | null,
-    created_at:string | null
+    trips?:number | null
+    busy_till?:string | null,
 }

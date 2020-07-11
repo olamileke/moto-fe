@@ -25,10 +25,6 @@ export class TokenInterceptor implements HttpInterceptor {
             headers_set = true;
         }
 
-        if(url.includes('users') && req.method.toLowerCase() == 'patch') {
-            headers_set = true;
-        }
-
         if(!headers_set) {
             headers['Content-Type'] = 'application/json';
         }

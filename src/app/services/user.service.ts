@@ -23,7 +23,6 @@ export class UserService {
     }
 
     edit(data:FormData): Observable<UserData> {
-        console.log(data);
         const url = environment.api_url + 'users?field=avatar';
         return this.http.patch<UserData>(url, data);
     }
