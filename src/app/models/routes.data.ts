@@ -2,6 +2,7 @@ import { Route } from './route';
 
 export interface RoutesData {
     data:{
-        routes:Route[]
+        routes:Route[],
+        total?:number
     }
 }

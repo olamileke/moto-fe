@@ -15,8 +15,8 @@ export class VehicleService {
         return this.http.post<VehicleData>(url, data);
     }
 
-    get(admin:boolean): Observable<VehiclesData> {
-        const url = environment.api_url + 'vehicles?admin=' + admin;
+    get(admin:boolean, page:number): Observable<VehiclesData> {
+        const url = environment.api_url + `vehicles?admin=${admin}&page=${page}`;
         return this.http.get<VehiclesData>(url);
     }
 

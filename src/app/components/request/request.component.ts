@@ -23,7 +23,7 @@ export class RequestComponent implements OnInit {
   routes:Route[];
   dataFetched:boolean = false;
   @Input() vehicle:Vehicle;
-  @Output() vehicles = new EventEmitter();
+  @Output() switch = new EventEmitter();
  
   ngOnInit(): void {
     this.getRoutes();
@@ -48,12 +48,12 @@ export class RequestComponent implements OnInit {
   submit(form:FormGroup): void {
     this.request.create(form.value).subscribe((res:RequestData) => {
         this.notif.success('Request created successfully');
-        this.viewVehicles();
+        this.view('all_requests');
     })
   }
 
-  viewVehicles(): void {
-    this.vehicles.emit();
+  view(tab:string): void {
+    this.switch.emit(tab);
   }
 
 }

@@ -2,6 +2,7 @@ import { Vehicle } from './vehicle';
 
 export interface VehiclesData {
     data:{
-        vehicles:Vehicle[]
+        vehicles:Vehicle[],
+        total:number
     }
 }

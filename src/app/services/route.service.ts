@@ -15,8 +15,9 @@ export class RouteService {
         return this.http.post<RouteData>(url, data);
     }
 
-    get(): Observable<RoutesData> {
-        const url = environment.api_url + 'routes';
+    get(page:number | null = null): Observable<RoutesData> {
+        let url;
+        page ? url = environment.api_url + 'routes?page=' + page : url = environment.api_url + 'routes?all=true';
         return this.http.get<RoutesData>(url);
     }
 

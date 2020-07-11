@@ -16,8 +16,8 @@ export class RequestService {
         return this.http.post<RequestData>(url, data);
     }
 
-    get(admin:boolean): Observable<RequestsData> {
-        const url = environment.api_url + 'requests?admin=' + admin;
+    get(admin:boolean, page:number): Observable<RequestsData> {
+        const url = environment.api_url + `requests?admin=${admin}&page=${page}`;
         return this.http.get<RequestsData>(url);
     }
 

@@ -3,6 +3,8 @@ import { VehicleService } from '../../services/vehicle.service';
 import { VehiclesData } from '../../models/vehicles.data';
 import { Vehicle } from '../../models/vehicle';
 import { DateService } from '../../services/date.service';
+import { environment } from '../../../environments/environment.prod';
+import { env } from 'process';
  
 @Component({
   selector: 'app-vehicles',
@@ -15,18 +17,22 @@ export class VehiclesComponent implements OnInit {
   admin:boolean;
   vehicles:Vehicle[];
   dataFetched:boolean = false;
+  activePage:number;
+  pages:number = 1;
   @Output() requestVehicle = new EventEmitter();
   @Output() edit = new EventEmitter();  
 
   ngOnInit(): void {
-    this.getVehicles();
+    this.getVehicles(1);
   }
 
-  getVehicles(): void {
+  getVehicles(page:number): void {
     this.admin = JSON.parse(localStorage.getItem('moto_user')).admin;
-    this.vehicle.get(this.admin).subscribe((res:VehiclesData) => {
+    this.vehicle.get(this.admin, page).subscribe((res:VehiclesData) => {
         this.vehicles = res.data.vehicles;
         this.dataFetched = true;
+        this.activePage = page;
+        this.pages = Math.ceil(res.data.total / environment.per_page);
     })
   }
 

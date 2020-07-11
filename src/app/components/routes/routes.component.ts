@@ -3,6 +3,7 @@ import { RouteService } from '../../services/route.service';
 import { RoutesData } from '../../models/routes.data';
 import { Route } from '../../models/route';
 import { DateService } from '../../services/date.service';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-routes',
@@ -15,18 +16,22 @@ export class RoutesComponent implements OnInit {
   
   routes:Route[];
   dataFetched:boolean = false;
+  activePage:number;
+  pages:number;
   admin:boolean;
   @Output() edit = new EventEmitter();
 
   ngOnInit(): void {
-    this.getRoutes();
+    this.getRoutes(1);
   }
 
-  getRoutes(): void {
+  getRoutes(page:number): void {
     this.admin = JSON.parse(localStorage.getItem('moto_user')).admin;
-    this.route.get().subscribe((res:RoutesData) => {
+    this.route.get(page).subscribe((res:RoutesData) => {
         this.routes = res.data.routes;
         this.dataFetched = true;
+        this.activePage = page;
+        this.pages = Math.ceil(res.data.total / environment.per_page);
     })
   }
 

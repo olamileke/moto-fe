@@ -37,7 +37,13 @@ export class AddVehicleComponent implements OnInit {
     this.fileInput.nativeElement.click();
   }
 
-  submit(form:FormGroup) {
+  submit(form:FormGroup): void {
+
+    if(!this.vehicle_picture) {
+        this.notif.error('Vehicle picture is required');
+        return;
+    }
+
     const formData = new FormData();
     formData.append('model', form.get('model').value);
     formData.append('image', this.vehicle_picture);
