@@ -1,11 +1,31 @@
 
-<div class='grid grid-cols-12 quicksand mt-3 lowercase'>
+<div class='grid grid-cols-12 quicksand px-5 mt-3'>
     <div class='col-start-2 col-end-12 grid grid-cols-12 flex flex-col'>
-        <div class='col-span-4 mx-2 mb-4 flex flex-col' *ngFor='let driver of drivers'>
-            <div class='relative'>
-                <img src='{{ driver.avatar }}' class='h-32 w-full object-cover'>
-                <div class='absolute top-0 left-0 w-full h-full' style='background:rgba(0,0,0,0.1)'></div>
+        <div class='col-span-4 mx-2 text-gray-800 shadow-md mb-4 flex flex-col' *ngFor='let driver of drivers'>
+            <div class='flex flex-row justify-between items-center'>
+                <div class='relative p-4'>
+                    <img src='{{ driver.avatar }}' class='h-16 w-16 object-cover'>
+                     <div class='absolute top-0 left-0 w-12 h-full' style='background:rgba(0,0,0,0.1)'></div>
+                </div>
+                <div class='mr-12'>
+                    <p class='m-0' *ngIf='determineInOperation(driver.busy_till)'>active</p>
+                    <p class='m-0' *ngIf='!determineInOperation(driver.busy_till)'>free</p>
+                </div>
             </div>
+            <div class='flex flex-col p-4'>
+                <p class='m-0 mb-1 font-semibold' style='font-size:0.9em;'>{{ driver.name }}</p>
+                <p class='m-0 mb-1'>joined {{ getDateString(driver.created_at) }}</p>
+                <p class='m-0 mb-1'>{{ driver.trips }} trips</p>
+                <p class='m-0' *ngIf='determineInOperation(driver.busy_till)'>busy till {{ getDateString(driver.busy_till) }}</p>
+                <p class='m-0' *ngIf='!determineInOperation(driver.busy_till)'>available</p>
+            </div>
+        </div>
+    </div> 
+
+    <div class='col-start-2 col-end-12 flex flex-row my-5 px-2' *ngIf='pages > 1'>
+        <div [ngClass]="{'bg-coppergreen':activePage == j+1, 'text-white':activePage == j+1}" class='cursor-pointer flex flex-row justify-center items-center
+         w-12 h-12 rounded mr-3 mb-3' (click)='getDrivers(j+1)' *ngFor='let i of [].constructor(pages); let j = index'>
+            <p class='text-lg'>{{ j + 1 }}</p>
         </div>
     </div>
 </div>

@@ -12,7 +12,7 @@
                         <a class='cursor-pointer underline mr-2' (click)='editVehicle(vehicle)'>edit</a>
                         <a class='cursor-pointer underline'>delete</a>
                     </div>
-                    <div class='text-black underline' *ngIf='vehicle.pending'>
+                    <div class='text-black' *ngIf='vehicle.pending'>
                        requested
                     </div>
                     <div class='text-black' *ngIf='determineInOperation(vehicle.reserved_till)'>

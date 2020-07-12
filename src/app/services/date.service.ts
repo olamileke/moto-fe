@@ -23,4 +23,13 @@ export class DateService {
         return `${day} ${dt} ${month} ${year}. ${hrs}:${mins}`;
 
     }
+
+    determineInOperation(dateStamp): boolean {
+
+        if(dateStamp < Date.now()) {
+            return false;
+        }
+    
+        return true;
+      }
 }

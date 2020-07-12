@@ -17,8 +17,8 @@ export class UserService {
         return this.http.post<UserData>(url, data);
     }
 
-    get(): Observable<UsersData> {
-        const url = environment.api_url + 'users?admin=true';
+    get(page:number): Observable<UsersData> {
+        const url = environment.api_url + 'users?admin=true&page=' + page;
         return this.http.get<UsersData>(url);
     }
 

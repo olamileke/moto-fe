@@ -11,7 +11,8 @@
             <div *ngIf='!request.pending'>
                 <div class='flex flex-row items-center' *ngIf='request.approved'>
                     <i class='text-coppergreen fa fa-check-circle relative' style='top:1px'></i>
-                    <a class='m-0 ml-2'>approved</a>
+                    <a class='m-0 ml-2'  *ngIf='determineInOperation(request.expires_at)'>approved</a>
+                    <a class='m-0 ml-2' *ngIf='!determineInOperation(request.expires_at)'>completed</a> 
                 </div>
                 <div class='flex flex-row items-center' *ngIf='!request.approved'>
                     <i class='fa fa-exclamation-triangle text-sm text-red-700 relative' style='top:1px;'></i>
@@ -25,7 +26,8 @@
             </div>
             <div class='flex flex-row items-center' *ngIf='!request.pending && request.approved'>
                 <i class='text-coppergreen fa fa-check-circle relative' style='top:1px'></i>
-                <a class='m-0 ml-2'>approved</a>
+                <a class='m-0 ml-2' *ngIf='determineInOperation(request.expires_at)'>approved</a> 
+                <a class='m-0 ml-2' *ngIf='!determineInOperation(request.expires_at)'>completed</a> 
             </div>
             <div class='flex flex-row items-center' *ngIf='!request.pending && !request.approved'>
                 <i class='fa fa-exclamation-triangle text-sm text-red-700 relative' style='top:1px;'></i>

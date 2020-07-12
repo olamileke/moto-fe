@@ -4,7 +4,6 @@ import { VehiclesData } from '../../models/vehicles.data';
 import { Vehicle } from '../../models/vehicle';
 import { DateService } from '../../services/date.service';
 import { environment } from '../../../environments/environment.prod';
-import { env } from 'process';
  
 @Component({
   selector: 'app-vehicles',
@@ -49,12 +48,6 @@ export class VehiclesComponent implements OnInit {
   }
 
   determineInOperation(dateStamp): boolean {
-
-    if(dateStamp < Date.now()) {
-        return false;
-    }
-
-    return true;
+    return this.date.determineInOperation(dateStamp);
   }
-
 }

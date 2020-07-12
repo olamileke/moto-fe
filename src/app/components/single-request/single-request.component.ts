@@ -39,4 +39,8 @@ export class SingleRequestComponent implements OnInit {
     })
   }
 
+  determineInOperation(dateStamp): boolean {
+    return this.date.determineInOperation(dateStamp);
+  }
+
 }
