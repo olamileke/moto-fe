@@ -5,7 +5,7 @@
     </div>
 
     <ul class='px-6 text-white text-sm lowercase'>
-        <li [class.shadow]='tabs.requests' (click)="switch('requests')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
+        <li [class.shadow]='tabs.requests || tabs.add_vehicle' (click)="switch('requests')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-tasks mr-5'></i>
             <p class='m-0'>Requests</p>
         </li>

@@ -1,4 +1,9 @@
 
+.header__main
+{
+    min-width:175px;
+}
+
 .options__parent
 {
     background:rgba(8, 8, 8, 0.4);

@@ -19,4 +19,9 @@ export class IssueService {
         const url = environment.api_url + `issues?admin=${admin}&page=${page}`;
         return this.http.get<IssuesData>(url);
     }
+
+    fix(issueID): Observable<IssueData> {
+        const url = environment.api_url + `issues/${issueID}`;
+        return this.http.patch<IssueData>(url, {});
+    }
 }

@@ -3,6 +3,8 @@ import { IssueService } from '../../services/issue.service';
 import { Issue } from '../../models/issue';
 import { IssuesData } from '../../models/issues.data';
 import { DateService } from '../../services/date.service';
+import { IssueData } from 'src/app/models/issue.data';
+import { NotifService } from '../../services/notif.service';
 
 @Component({
   selector: 'app-maintenance',
@@ -11,7 +13,7 @@ import { DateService } from '../../services/date.service';
 })
 export class MaintenanceComponent implements OnInit {
 
-  constructor(private issue:IssueService, private date:DateService) { }
+  constructor(private issue:IssueService, private date:DateService, private notif:NotifService) { }
 
   issues:Issue[];
   dataFetched:boolean = false;
@@ -29,8 +31,15 @@ export class MaintenanceComponent implements OnInit {
     })
   }
 
+  fix(issueID:string, j:number) {
+    this.issue.fix(issueID).subscribe((res:IssueData) => {
+        this.notif.success('Issue marked as fixed');
+        this.issues[j] = res.data.issue;
+    })
+  }
+
   getDateString(dateStamp): string {
-    return this.date.getString(dateStamp);
+    return this.date.getString(Number(dateStamp));
   }
 
 }

@@ -12,7 +12,6 @@ export interface Issue {
         picture:string
     },
     picture:string,
-    fixed:boolean,
     fixed_at:string,
     created_at:string
 }

@@ -28,6 +28,13 @@ export class HeaderComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('moto_user'));
   }
 
+  clipName(name:string): string {
+    if(name.length > 13) {
+        return name.slice(0,13) + '...';
+    }
+    return name;
+  }
+
   setImage(fileInput:any): void {
     const file = fileInput.files[0];
 
