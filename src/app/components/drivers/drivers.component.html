@@ -1,18 +1,18 @@
 
 <div class='grid grid-cols-12 quicksand px-5 mt-3'>
     <div class='col-start-2 col-end-12 grid grid-cols-12 flex flex-col'>
-        <div class='col-span-4 mx-2 text-gray-800 shadow-md mb-4 flex flex-col' *ngFor='let driver of drivers'>
-            <div class='flex flex-row justify-between items-center'>
-                <div class='relative p-4'>
+        <div class='col-span-4 mx-2 text-gray-800 shadow-md mb-4 p-4 flex flex-col' *ngFor='let driver of drivers'>
+            <div class='flex flex-row justify-between items-center mb-4'>
+                <div class='relative'>
                     <img src='{{ driver.avatar }}' class='h-16 w-16 object-cover'>
-                     <div class='absolute top-0 left-0 w-12 h-full' style='background:rgba(0,0,0,0.1)'></div>
+                     <div class='absolute top-0 left-0 mr-4 w-16 h-full' style='background:rgba(0,0,0,0.1)' *ngIf="!driver.avatar.includes('anon.png')"></div>
                 </div>
                 <div class='mr-12'>
                     <p class='m-0' *ngIf='determineInOperation(driver.busy_till)'>active</p>
                     <p class='m-0' *ngIf='!determineInOperation(driver.busy_till)'>free</p>
                 </div>
             </div>
-            <div class='flex flex-col p-4'>
+            <div class='flex flex-col'>
                 <p class='m-0 mb-1 font-semibold' style='font-size:0.9em;'>{{ driver.name }}</p>
                 <p class='m-0 mb-1'>joined {{ getDateString(driver.created_at) }}</p>
                 <p class='m-0 mb-1'>{{ driver.trips }} trips</p>

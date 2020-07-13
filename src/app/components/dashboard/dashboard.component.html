@@ -11,6 +11,8 @@
             <app-request *ngIf='tabs.request' (switch)="switchTab($event)" [vehicle]='selectedVehicle'></app-request>
             <app-routes *ngIf='tabs.routes'></app-routes>
             <app-vehicles (requestVehicle)="switchTab('request', $event)" *ngIf='tabs.vehicles'></app-vehicles>
+            <app-report (view)="switchTab($event)" *ngIf='tabs.report'></app-report>
+            <app-maintenance *ngIf='tabs.maintenance'></app-maintenance>
         </div>
     </div>
 </div>

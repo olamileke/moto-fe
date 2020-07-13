@@ -30,6 +30,8 @@ import { AllRequestsComponent } from './components/all-requests/all-requests.com
 import { LoaderComponent } from './components/loader/loader.component';
 import { EditRouteComponent } from './components/edit-route/edit-route.component';
 import { EditVehicleComponent } from './components/edit-vehicle/edit-vehicle.component';
+import { ReportComponent } from './components/report/report.component';
+import { MaintenanceComponent } from './components/maintenance/maintenance.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { EditVehicleComponent } from './components/edit-vehicle/edit-vehicle.com
     AllRequestsComponent,
     LoaderComponent,
     EditRouteComponent,
-    EditVehicleComponent
+    EditVehicleComponent,
+    ReportComponent,
+    MaintenanceComponent
   ],
   imports: [
     BrowserModule,

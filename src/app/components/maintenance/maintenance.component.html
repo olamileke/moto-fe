@@ -1,0 +1,49 @@
+
+<div class='grid grid-cols-12 quicksand px-5 mt-3' *ngIf='dataFetched'>
+    <div class='col-start-2 col-end-12 grid grid-cols-12'>
+        <div class='col-span-6 mx-2 p-4 text-gray-800 shadow-md mb-4 flex flex-col' *ngFor='let issue of issues'>
+            <div class='flex flex-row justify-between items-center mb-4'>
+                <div class='relative'>
+                    <img src='{{ issue.picture }}' class='h-16 w-16 object-cover'>
+                     <div class='absolute top-0 left-0 mr-4 w-16 h-full' style='background:rgba(0,0,0,0.1)'></div>
+                </div>
+                <div class='mr-12' *ngIf='admin'>
+                    <div class='flex flex-row items-center' *ngIf='!issue.fixed_at'>
+                        <i class='fa fa-exclamation-triangle text-sm text-red-700 relative mr-3' style='top:1px;'></i>
+                        <a class='underline cursor-pointer'>fix issue</a>
+                    </div>
+                    <p class='m-0' *ngIf='issue.fixed_at'>
+                        <i class='bg-coppergreen fa fa-check-circle'></i>
+                        fixed
+                    </p>
+                </div>
+                <div class='mr-12' *ngIf='!admin'>
+                    <div class='flex flex-row items-center' *ngIf='!issue.fixed_at'>
+                        <i class='fa fa-exclamation-triangle text-sm text-red-700 relative mr-3' style='top:1px;'></i>
+                        <p class='m-0'>awaiting fix</p>
+                    </div>
+                    <p class='m-0' *ngIf='issue.fixed_at'>
+                        <i class='bg-coppergreen fa fa-check-circle'></i>
+                        fixed
+                    </p>
+                </div>
+            </div>
+            <div class='flex flex-col'>
+                <div class='flex flex-row items-center mb-1' *ngIf='admin'>
+                    <img src='{{ issue.vehicle.picture }}' class='rounded-full object-cover mr-2 w-6 h-6'>
+                    <img src='{{ issue.user.avatar }}' class='rounded-full object-cover mr-2 w-6 h-6'>
+                    <p class='m-0 mt-1 font-semibold' style='font-size:0.9em;'>{{ issue.user.name }}</p>
+                </div>
+                <p class='m-0 mb-1'>{{ issue.vehicle.model }}</p>
+                <p class='m-0 mb-1'>plate number - {{ issue.vehicle.plate_number }}</p>
+                <p class='m-0 mb-1'>{{ issue.title }}</p>
+                <p class='m-0 mb-1'>{{ issue.description }}</p>
+                <p class='m-0 mb-1'>recorded {{ getDateString(issue.created_at) }}</p>
+                <p class='m-0' *ngIf='issue.fixed_at'>fixed at {{ getDateString(issue.fixed_at) }}</p>
+                <p class='m-0' *ngIf='!issue.fixed_at'>
+                    not fixed yet
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

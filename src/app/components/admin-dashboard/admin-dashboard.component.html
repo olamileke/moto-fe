@@ -14,6 +14,7 @@
             <app-vehicles (edit)="switchTab('edit_vehicle', null, $event)" *ngIf='tabs.vehicles'></app-vehicles>
             <app-edit-vehicle [vehicle]='activeVehicle' (viewVehicles)="switchTab('vehicles')" *ngIf='tabs.edit_vehicle'></app-edit-vehicle>
             <app-drivers *ngIf='tabs.drivers'></app-drivers>
+            <app-maintenance *ngIf='tabs.maintenance'></app-maintenance>
         </div>
     </div>
 </div>
