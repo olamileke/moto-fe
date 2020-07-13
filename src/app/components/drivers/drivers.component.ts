@@ -15,8 +15,9 @@ export class DriversComponent implements OnInit {
   constructor(private driver:UserService, private date:DateService) { }
   
   drivers:User[];
-  activePage:number;
+  activePage:number; 
   pages:number;
+  dataFetched:boolean;
 
   ngOnInit(): void {
     this.getDrivers(1);
@@ -26,6 +27,7 @@ export class DriversComponent implements OnInit {
     this.driver.get(page).subscribe((res:UsersData) => {
         this.drivers = res.data.users;
         this.activePage = page;
+        this.dataFetched = true;
         this.pages = Math.ceil(res.data.total / environment.per_page);
     })
   }

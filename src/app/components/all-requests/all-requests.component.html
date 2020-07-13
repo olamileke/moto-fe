@@ -1,12 +1,19 @@
 
-<div class='grid grid-cols-12 quicksand px-5 mt-3' *ngIf='dataFetched'>
-    <div class='col-start-2 col-end-12 grid grid-cols-12 flex flex-col'>
+<div class='grid grid-cols-12 quicksand px-5' *ngIf='dataFetched'>
+    <div class='col-start-2 col-end-12 text-center flex flex-row justify-center items-center no__resource' *ngIf='requests.length == 0'>
+        <div class='flex flex-col items-center relative'>
+            <img class='mb-2 mr-5' width='50px' height='50px' src='/assets/images/error/risk.png'>
+            <p class='m-0 text-lg'>no requests to display</p>
+        </div>
+    </div>
+
+    <div class='col-start-2 col-end-12 grid grid-cols-12 flex flex-col' *ngIf='requests.length > 0'>
         <div class='col-span-4 mx-2 mb-4 flex flex-col' *ngFor='let request of requests'>
             <app-single-request [request]='request'></app-single-request>
         </div>
     </div>
 
-    <div class='col-start-2 col-end-12 flex flex-row my-5 px-2' *ngIf='pages > 1'>
+    <div class='col-start-2 col-end-12 flex flex-row my-5 px-2' *ngIf='pages > 1 && requests.length > 0'>
         <div [ngClass]="{'bg-coppergreen':activePage == j+1, 'text-white':activePage == j+1}" class='cursor-pointer flex flex-row justify-center items-center
          w-12 h-12 rounded mr-3 mb-3' (click)='getRequests(j+1)' *ngFor='let i of [].constructor(pages); let j = index'>
             <p class='text-lg'>{{ j + 1 }}</p>

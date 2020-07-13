@@ -31,6 +31,22 @@ html
     background:rgba(0,0,0,0.007);
 }
 
+.input.select:focus
+{
+    box-shadow:0px 3px 8px 3px rgba(0,0,0,0.1);
+    background:white;
+}
+
+.no__resource
+{
+    height:calc(100vh - 88px);
+}
+
+.no__resource div
+{
+    top:-12vh;
+}
+
 .back__icon
 {
     position:fixed;

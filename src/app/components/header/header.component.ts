@@ -58,6 +58,7 @@ export class HeaderComponent implements OnInit {
     this.user_service.edit(formData).subscribe((res:UserData) => {
         this.notif.success('Avatar changed successfully');
         this.user = res.data.user;
+        this.showOptions = false;
         localStorage.setItem('moto_user', JSON.stringify(res.data.user));
     })
   }
