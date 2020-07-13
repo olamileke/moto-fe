@@ -4,6 +4,7 @@ import { Issue } from '../../models/issue';
 import { IssuesData } from '../../models/issues.data';
 import { DateService } from '../../services/date.service';
 import { IssueData } from 'src/app/models/issue.data';
+import { ImageService } from '../../services/image.service';
 import { NotifService } from '../../services/notif.service';
 
 @Component({
@@ -13,7 +14,8 @@ import { NotifService } from '../../services/notif.service';
 })
 export class MaintenanceComponent implements OnInit {
 
-  constructor(private issue:IssueService, private date:DateService, private notif:NotifService) { }
+  constructor(private issue:IssueService, private date:DateService, private image:ImageService,
+  private notif:NotifService) { }
 
   issues:Issue[];
   dataFetched:boolean = false;
@@ -36,6 +38,11 @@ export class MaintenanceComponent implements OnInit {
         this.notif.success('Issue marked as fixed');
         this.issues[j] = res.data.issue;
     })
+  }
+
+  viewImage(url:string): void {
+    this.image.show();
+    this.image.setUrl(url);
   }
 
   getDateString(dateStamp): string {

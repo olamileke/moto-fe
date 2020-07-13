@@ -32,6 +32,7 @@ import { EditRouteComponent } from './components/edit-route/edit-route.component
 import { EditVehicleComponent } from './components/edit-vehicle/edit-vehicle.component';
 import { ReportComponent } from './components/report/report.component';
 import { MaintenanceComponent } from './components/maintenance/maintenance.component';
+import { ViewImageComponent } from './components/view-image/view-image.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { MaintenanceComponent } from './components/maintenance/maintenance.compo
     EditRouteComponent,
     EditVehicleComponent,
     ReportComponent,
-    MaintenanceComponent
+    MaintenanceComponent,
+    ViewImageComponent
   ],
   imports: [
     BrowserModule,

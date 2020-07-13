@@ -4,6 +4,7 @@ import { DateService } from '../../services/date.service';
 import { RequestService } from '../../services/request.service';
 import { RequestData } from '../../models/request.data';
 import { NotifService } from '../../services/notif.service';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-single-request',
@@ -12,7 +13,8 @@ import { NotifService } from '../../services/notif.service';
 })
 export class SingleRequestComponent implements OnInit {
 
-  constructor(private date:DateService, private request_service:RequestService, private notif:NotifService) { }
+  constructor(private date:DateService, private request_service:RequestService, private image:ImageService,
+  private notif:NotifService) { }
 
   @Input() request:Request;
   admin:boolean;
@@ -37,6 +39,11 @@ export class SingleRequestComponent implements OnInit {
         this.request.pending = false;
         this.request.approved = approved;
     })
+  }
+
+  viewImage(url:string): void {
+    this.image.show();
+    this.image.setUrl(url);
   }
 
   determineInOperation(dateStamp): boolean {

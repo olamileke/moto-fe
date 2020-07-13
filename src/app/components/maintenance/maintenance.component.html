@@ -13,7 +13,7 @@
             <div class='flex flex-row justify-between items-center mb-4'>
                 <div class='relative'>
                     <img src='{{ issue.picture }}' class='h-16 w-16 object-cover'>
-                     <div class='absolute top-0 left-0 mr-4 w-16 h-full' style='background:rgba(0,0,0,0.1)'></div>
+                     <div (click)='viewImage(issue.picture)' class='cursor-pointer absolute top-0 left-0 mr-4 w-16 h-full' style='background:rgba(0,0,0,0.1)'></div>
                 </div>
                 <div class='mr-12' *ngIf='admin'>
                     <div class='flex flex-row items-center' *ngIf='!issue.fixed_at'>
@@ -38,12 +38,12 @@
             </div>
             <div class='flex flex-col'>
                 <div class='flex flex-row items-center mb-1' *ngIf='admin'>
-                    <img src='{{ issue.vehicle.picture }}' class='rounded-full object-cover mr-2 w-6 h-6'>
-                    <img src='{{ issue.user.avatar }}' class='rounded-full object-cover mr-2 w-6 h-6'>
+                    <img (click)='viewImage(issue.vehicle.picture)' src='{{ issue.vehicle.picture }}' class='cursor-pointer rounded-full object-cover mr-2 w-6 h-6'>
+                    <img (click)='viewImage(issue.user.avatar)' src='{{ issue.user.avatar }}' class='cursor-pointer rounded-full object-cover mr-2 w-6 h-6'>
                     <p class='m-0 mt-1 font-semibold' style='font-size:0.9em;'>{{ issue.user.name }}</p>
                 </div>
                 <div class='flex flex-row mb-1'>
-                    <img src='{{ issue.vehicle.picture }}' class='rounded-full object-cover mr-2 w-6 h-6' *ngIf='!admin'>
+                    <img (click)='viewImage(issue.vehicle.picture)' src='{{ issue.vehicle.picture }}' class='cursor-pointer rounded-full object-cover mr-2 w-6 h-6' *ngIf='!admin'>
                     <p class='m-0'>{{ issue.vehicle.model }}</p>
                 </div>
                 <p class='m-0 mb-1'>plate number - {{ issue.vehicle.plate_number }}</p>

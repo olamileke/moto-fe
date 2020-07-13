@@ -3,6 +3,7 @@ import { VehicleService } from '../../services/vehicle.service';
 import { VehiclesData } from '../../models/vehicles.data';
 import { Vehicle } from '../../models/vehicle';
 import { DateService } from '../../services/date.service';
+import { ImageService } from '../../services/image.service';
 import { environment } from '../../../environments/environment.prod';
  
 @Component({
@@ -12,7 +13,7 @@ import { environment } from '../../../environments/environment.prod';
 })
 export class VehiclesComponent implements OnInit {
 
-  constructor(private vehicle:VehicleService, private date:DateService) { }
+  constructor(private vehicle:VehicleService, private date:DateService, private image:ImageService) { }
   admin:boolean;
   vehicles:Vehicle[];
   dataFetched:boolean = false;
@@ -45,6 +46,11 @@ export class VehiclesComponent implements OnInit {
 
   editVehicle(vehicle:Vehicle): void {
     this.edit.emit(vehicle)
+  }
+
+  viewImage(url:string): void {
+    this.image.show();
+    this.image.setUrl(url);
   }
 
   determineInOperation(dateStamp): boolean {

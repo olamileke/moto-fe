@@ -13,7 +13,7 @@
             <div class='flex flex-row justify-between items-center mb-4'>
                 <div class='relative'>
                     <img src='{{ driver.avatar }}' class='h-16 w-16 object-cover'>
-                     <div class='absolute top-0 left-0 mr-4 w-16 h-full' style='background:rgba(0,0,0,0.1)' *ngIf="!driver.avatar.includes('anon.png')"></div>
+                    <div (click)='viewImage(driver.avatar)' class='cursor-pointer absolute top-0 left-0 mr-4 w-16 h-full' style='background:rgba(0,0,0,0.1)' *ngIf="!driver.avatar.includes('anon.png')"></div>
                 </div>
                 <div class='mr-12'>
                     <p class='m-0' *ngIf='determineInOperation(driver.busy_till)'>active</p>

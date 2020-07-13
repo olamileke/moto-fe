@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { UsersData } from '../../models/users.data';
 import { User } from '../../models/user';
 import { DateService } from '../../services/date.service';
+import { ImageService } from '../../services/image.service';
 import { environment } from '../../../environments/environment.prod';
 
 @Component({
@@ -12,7 +13,7 @@ import { environment } from '../../../environments/environment.prod';
 })
 export class DriversComponent implements OnInit {
 
-  constructor(private driver:UserService, private date:DateService) { }
+  constructor(private driver:UserService, private date:DateService, private image:ImageService) { }
   
   drivers:User[];
   activePage:number; 
@@ -34,6 +35,11 @@ export class DriversComponent implements OnInit {
 
   getDateString(dateStamp): string {
     return this.date.getString(dateStamp);
+  }
+
+  viewImage(url:string): void {
+    this.image.show();
+    this.image.setUrl(url);
   }
 
   determineInOperation(dateStamp): boolean {

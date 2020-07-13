@@ -1,8 +1,8 @@
 
 <div class='flex flex-col text-gray-800 shadow-md p-4'>
     <div class='relative flex flex-row justify-between items-center mb-4'>
-        <img src='{{ request.vehicle.picture }}' class='w-16 h-16 object-cover'>
-        <div class='absolute top-0 left-0 mr-4 w-16 h-full' style='background:rgba(0,0,0,0.1)'></div>
+        <img src='{{ request.vehicle.picture }}' class='cursor-pointer w-16 h-16 object-cover'>
+        <div (click)='viewImage(request.vehicle.picture)' class='absolute top-0 cursor-pointer left-0 mr-4 z-10 w-16 h-full' style='background:rgba(0,0,0,0.1)'></div>
         <div class='mt-1 flex flex-col mr-5' *ngIf='admin'>
             <div class='flex flex-row' *ngIf='request.pending'>
                 <a class='mr-2 cursor-pointer underline' (click)="update(true)">approve</a>
@@ -37,7 +37,7 @@
     </div>
     <div class='flex flex-col text-gray-800'>
         <div class='flex flex-row items-center mb-1' *ngIf='admin'>
-            <img src='{{ request.user.avatar }}' class='rounded-full object-cover mr-2 w-6 h-6'>
+            <img (click)='viewImage(request.user.avatar)' src='{{ request.user.avatar }}' class='cursor-pointer rounded-full object-cover mr-2 w-6 h-6'>
             <p class='m-0 mt-1 font-semibold' style='font-size:0.9em;'>{{ request.user.name }}</p>
         </div>
         <p class='m-0 mb-1 lowercase'>{{ request.vehicle.model }}. {{ request.vehicle.plate_number }}</p>
