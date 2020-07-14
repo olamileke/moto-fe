@@ -21,7 +21,15 @@
 {
     .landing__content
     {
-        height:75vh;
+        height:58vh;
+    }
+}
+
+@media(max-width:340px)
+{
+    .landing__content
+    {
+        height:70vh;
     }
 }
 
