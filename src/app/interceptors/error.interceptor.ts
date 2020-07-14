@@ -27,9 +27,21 @@ export class ErrorInterceptor implements HttpInterceptor {
             }
         }
 
-        if(url.includes('vehicles') && error.status == 403) {
+        if(url == 'vehicles' && error.status == 403) {
             this.notif.error('Vehicle plate number is taken');
             displayed = true;
+        }
+        
+        if(url.includes('vehicles') && url.length > 8 && error.status == 403) {
+            if(error.error.message.includes('pending')) {
+                this.notif.error('there is a pending request for that vehicle');
+                displayed = true;
+            }
+
+            if(error.error.message.includes('active')) {
+                this.notif.error('a driver is using this vehicle currently');
+                displayed = true;
+            }
         }
 
         if(url == 'routes' && error.status == 403) {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Route } from '../../models/route';
 import { Vehicle } from '../../models/vehicle';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -9,11 +11,12 @@ import { Vehicle } from '../../models/vehicle';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private image:ImageService) { }
 
   tabs = { add_vehicle:false, edit_vehicle:false, requests:true, new_route:false, edit_route:false , routes:false, vehicles:false, drivers:false, maintenance:false }
   activeRoute:Route;
   activeVehicle:Vehicle;
+  display:Subject<boolean> = this.image.display;
 
   ngOnInit(): void {
   }

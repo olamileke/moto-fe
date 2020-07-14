@@ -4,7 +4,7 @@
         <div class='h-screen pt-24 sidebar bg-coppergreen'>
             <app-admin-sidebar (switchTab)="switchTab($event)"></app-admin-sidebar>
         </div>
-        <div class='col-span-12 main'>
+        <div [ngClass]="{'h-screen':display | async, 'overflow-y-hidden':display | async}" class='col-span-12 main'>
             <app-header></app-header>
             <app-all-requests *ngIf='tabs.requests'></app-all-requests>
             <app-add-vehicle *ngIf='tabs.add_vehicle'></app-add-vehicle>
