@@ -3,6 +3,7 @@ import { RouteService } from '../../services/route.service';
 import { RoutesData } from '../../models/routes.data';
 import { Route } from '../../models/route';
 import { DateService } from '../../services/date.service';
+import { NotifService } from '../../services/notif.service';
 import { environment } from '../../../environments/environment.prod';
 
 @Component({
@@ -12,7 +13,7 @@ import { environment } from '../../../environments/environment.prod';
 })
 export class RoutesComponent implements OnInit {
 
-  constructor(private route:RouteService, private date:DateService) { }
+  constructor(private route:RouteService, private date:DateService, private notif:NotifService) { }
   
   routes:Route[];
   dataFetched:boolean = false;
@@ -41,6 +42,10 @@ export class RoutesComponent implements OnInit {
 
   editRoute(route:Route) {
     this.edit.emit(route);
+  }
+
+  deleteRoute(id:string, index:number): void {
+
   }
 
 }

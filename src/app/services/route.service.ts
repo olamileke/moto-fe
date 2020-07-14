@@ -21,8 +21,13 @@ export class RouteService {
         return this.http.get<RoutesData>(url);
     }
 
-    edit(data:any, routeID): Observable<RouteData> {
+    edit(data:any, routeID:string): Observable<RouteData> {
         const url = environment.api_url + 'routes/' + String(routeID);
         return this.http.put<RouteData>(url, data);
-    }   
+    } 
+    
+    delete(routeID:string): Observable<any> {
+        const url = environment.api_url + 'routes/' + routeID;
+        return this.http.delete<any>(url);
+    }
 }

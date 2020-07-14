@@ -3,3 +3,25 @@
 {
     top:-0.5vh;
 }
+
+.landing__content
+{
+    height:80vh;
+}
+
+@media(max-width:1025px)
+{
+    .landing__content
+    {
+        height:50vh;
+    }
+}
+
+@media(max-width:576px)
+{
+    .landing__content
+    {
+        height:75vh;
+    }
+}
+
