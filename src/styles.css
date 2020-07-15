@@ -37,9 +37,15 @@ html
     background:white;
 }
 
-.no__resource
+.no__resource, .form__container
 {
     height:calc(100vh - 88px);
+}
+
+.form__parent
+{
+    position: relative;
+    top:-5vh;
 }
 
 .no__resource div

@@ -55,4 +55,22 @@
       transform: translate(24px, 0);
     }
   }
+
+  @media(max-width:1025px)
+  {
+    .lds-ellipsis
+    {
+        bottom:2.5vh;
+        right:3.8vh;
+    }
+  }
+
+  @media(max-width:610px)
+  {
+    .lds-ellipsis
+    {
+        bottom:4vh;
+        right:6vh;
+    }
+  }
   
