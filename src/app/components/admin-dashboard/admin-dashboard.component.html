@@ -1,7 +1,7 @@
 
 <div class='w-screen min-h-screen' style='background:rgba(0,0,0,0.009)'>
     <div class='grid grid-cols-12'>
-        <div class='h-screen pt-24 sidebar bg-coppergreen'>
+        <div class='hidden lg:block h-screen pt-24 sidebar bg-coppergreen'>
             <app-admin-sidebar (switchTab)="switchTab($event)"></app-admin-sidebar>
         </div>
         <div [ngClass]="{'h-screen':display | async, 'overflow-y-hidden':display | async}" class='col-span-12 main'>

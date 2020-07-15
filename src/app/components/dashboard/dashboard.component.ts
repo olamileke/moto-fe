@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehicle } from 'src/app/models/vehicle';
+import { ImageService } from '../../services/image.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,14 +9,15 @@ import { Vehicle } from 'src/app/models/vehicle';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private image:ImageService) { }
 
   tabs = { all_requests:true, request:false, report:false, routes:false, vehicles:false, maintenance:false }
   selectedVehicle:Vehicle;
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
   }
-
+  
+  display:Subject<boolean> = this.image.display;
   
   switchTab(tab:string, vehicle:Vehicle | null=null) {
     

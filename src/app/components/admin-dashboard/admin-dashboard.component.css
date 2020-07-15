@@ -9,3 +9,11 @@
 {
     margin-left:16.667vw;
 }
+
+@media(max-width:1025px)
+{
+    .main
+    {
+        margin-left:0;
+    }
+}

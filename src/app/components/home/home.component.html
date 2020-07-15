@@ -1,5 +1,5 @@
 <div class='bg-honeydew w-screen relative landing__content px-8 xs:px-10 sm:px-0'>
-    <div class='grid grid-cols-12 h-full items-center'>
+    <div class='grid grid-cols-12 h-full items-center' *ngIf='!sm__lg'>
         <div class='hidden sm:block col-start-2 col-end-8 pr-10 lg:pr-0 lg:col-end-6'>
             <img src='/assets/images/home/taxi.png'>
         </div>
@@ -8,6 +8,18 @@
             <a routerLink='/auth/signup' class='btn p-4 text-white shadow-xl quicksand bg-coppergreen' style='width:fit-content;'>
                 Try Moto out now 
             </a>
+        </div>
+    </div>
+
+    <div class='grid grid-cols-12 h-full items-center' *ngIf='sm__lg'>
+        <div class='col-start-2 col-end-7 pr-5 md:pr-10 mt-12 md:mt-8 flex flex-col text-black quicksand font-semibold brand__text relative'>
+            <p class='m-0 text-xl md:text-2xl mb-3 md:mb-5'>Efficient Transport Management that works. All the time. Everytime.</p>
+            <a routerLink='/auth/signup' class='btn p-4 text-white shadow-xl quicksand bg-coppergreen' style='width:fit-content;'>
+                Try Moto out now 
+            </a>
+        </div>
+        <div class='col-start-7 col-end-12 mt-8 bsm:mt-4 md:mt-0'>
+            <img src='/assets/images/home/taxi.png'>
         </div>
     </div>
 
@@ -21,7 +33,7 @@
     </div>
 </div>
 <div class='py-12 sm:py-20 grid grid-cols-12'>
-   <div class='col-span-12 sm:col-start-2 sm:col-end-12 grid grid-cols-12 items-center px-8 sm:px-8'>
+   <div class='col-span-12 sm:col-start-2 sm:col-end-12 grid grid-cols-12 items-center px-8' *ngIf='!md__lg'>
         <div class='flex flex-col col-start-1 col-end-13 md:col-end-7 quicksand'>
             <p class='m-0 text-lg xs:text-xl text-left bsm:text-2xl font-semibold mb-4' style='line-height:1.6em'>Take advantage of our efficient vehicle allocation services</p>
             <p class='m-0 text-lg text-justify sm:pr-4' style='line-height:1.6em'>
@@ -34,6 +46,20 @@
             <img src='/assets/images/home/path.png'>
         </div>
    </div>
+
+   <div class='col-start-1 pl-20 col-end-12 grid grid-cols-12 items-center px-8' *ngIf='md__lg'>
+        <div class='col-start-1 col-end-6'>
+            <img src='/assets/images/home/path.png'>
+        </div>
+        <div class='flex flex-col col-start-6 pl-10 col-end-13'>
+            <p class='m-0 text-lg xs:text-xl text-left bsm:text-2xl font-semibold mb-4' style='line-height:1.6em'>Take advantage of our efficient vehicle allocation services</p>
+            <p class='m-0 text-lg text-justify sm:pr-4' style='line-height:1.6em'>
+                Getting a vehicle does not have to be this time consuming intensive process. With Moto say goodbye to all hassles
+                involved in the vehicle allocation process. You are sure to see an uptick in efficiency with Moto. Also, with Moto logs, 
+                easily keep track of maintenance issues with seamless mechanisms for recording issues.
+            </p>
+        </div>
+    </div>
 </div>
 
 <div class='p-8 py-12 sm:p-12 bsm:px-0 bsm:py-16 grid grid-cols-12 text-white quicksand bg-coppergreen'>

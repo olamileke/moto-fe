@@ -1,11 +1,11 @@
 
 
 <div class='w-screen min-h-screen' style='background:rgba(0,0,0,0.009)'>
-    <div class='grid grid-cols-12'>
+    <div class='grid grid-cols-12'> 
         <div class='h-screen pt-24 sidebar bg-coppergreen'>
             <app-sidebar (switchTab)='switchTab($event)'></app-sidebar>
         </div>
-        <div class='col-span-12 main'>
+        <div [ngClass]="{'h-screen':display | async, 'overflow-y-hidden':display | async}" class='col-span-12 main'>
             <app-header></app-header>
             <app-all-requests *ngIf='tabs.all_requests'></app-all-requests>
             <app-request *ngIf='tabs.request' (switch)="switchTab($event)" [vehicle]='selectedVehicle'></app-request>

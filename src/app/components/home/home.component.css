@@ -21,15 +21,15 @@
 {
     .landing__content
     {
-        height:58vh;
+        height:70vh;
     }
 }
-
+/* 
 @media(max-width:340px)
 {
     .landing__content
     {
         height:70vh;
     }
-}
+} */
 
