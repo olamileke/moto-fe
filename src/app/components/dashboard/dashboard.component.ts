@@ -14,13 +14,14 @@ export class DashboardComponent implements OnInit {
 
   tabs = { all_requests:true, request:false, report:false, routes:false, vehicles:false, maintenance:false }
   selectedVehicle:Vehicle;
+  sidebar:boolean = false;
 
   ngOnInit(): void { 
   }
   
   display:Subject<boolean> = this.image.display;
   
-  switchTab(tab:string, vehicle:Vehicle | null=null) {
+  switchTab(tab:string, vehicle:Vehicle | null=null, toggleSidebar = null) {
     
     if(vehicle) {
         this.selectedVehicle = vehicle;
@@ -32,5 +33,10 @@ export class DashboardComponent implements OnInit {
     })
 
     this.tabs[tab] = true;
+    screen.width <= 1025 && !vehicle && toggleSidebar ? this.toggleSidebar() : ''; 
+  }
+
+  toggleSidebar(): void {
+    this.sidebar  = !this.sidebar;
   }
 }

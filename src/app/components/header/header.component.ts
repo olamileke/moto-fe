@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { FileService } from '../../services/file.service';
@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   selectedUserImage:File;
   @ViewChild('fileInput') fileInput;
   @ViewChild('userImage') userImage;
+  @Output() sidebar = new EventEmitter();
 
   ngOnInit(): void {
     this.getUser();
@@ -73,6 +74,10 @@ export class HeaderComponent implements OnInit {
 
   fileClick(): void {
     this.fileInput.nativeElement.click();
+  }
+
+  view(): void {
+    this.sidebar.emit();
   }
 
 }

@@ -1,0 +1,24 @@
+
+
+:host
+{
+    font-family:"Quicksand", sans-serif;
+    position:relative;
+    top:6vh;
+}
+
+@media(max-width:1025px)
+{
+    :host
+    {
+        top:-12vh;
+    }
+}
+
+@media(max-width:500px)
+{
+    :host
+    {
+        top:-6vh;
+    }
+}

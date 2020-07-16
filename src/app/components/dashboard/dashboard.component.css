@@ -9,3 +9,41 @@
 {
     margin-left:16.667vw;
 }
+
+@media(max-width:1025px)
+{
+    .sidebar
+    {
+        left:calc(-35vw - 1px);
+        width:35vw;
+    }
+
+    .sidebar.active
+    {
+        left:0;
+    }
+
+    .main
+    {
+        margin-left:0;
+    }
+}
+
+@media(max-width:610px)
+{
+    .sidebar
+    {
+        left:calc(-50vw - 1px);
+        width:50vw;
+    }
+}
+
+
+@media(max-width:500px)
+{
+    .sidebar
+    {
+        left:calc(-60vw - 1px);
+        width:60vw;
+    }
+}

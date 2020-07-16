@@ -12,13 +12,19 @@ export class AdminSidebarComponent implements OnInit {
   user:User;
   tabs = { add_vehicle:false, requests:true, new_route:false, routes:false, vehicles:false, drivers:false, maintenance:false }
   @Output() switchTab = new EventEmitter();
+  lg:boolean;
 
   ngOnInit(): void {
     this.getUser(); 
+    this.determineBreakpoint();
   }
 
   getUser(): void {
     this.user = JSON.parse(localStorage.getItem('moto_user'));
+  }
+
+  determineBreakpoint(): void {
+    screen.width < 1025 ? this.lg = true : this.lg = false;
   }
 
   switch(tab:string) {

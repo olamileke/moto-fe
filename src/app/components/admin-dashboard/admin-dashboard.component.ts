@@ -17,11 +17,12 @@ export class AdminDashboardComponent implements OnInit {
   activeRoute:Route;
   activeVehicle:Vehicle;
   display:Subject<boolean> = this.image.display;
+  sidebar:boolean = false;
 
   ngOnInit(): void {
   }
 
-  switchTab(tab:string, route:Route | null = null, vehicle:Vehicle | null = null) {
+  switchTab(tab:string, route:Route | null = null, vehicle:Vehicle | null = null, toggleSidebar=null) {
     if(route) {
         this.activeRoute = route;
     }
@@ -37,6 +38,11 @@ export class AdminDashboardComponent implements OnInit {
     })
 
     this.tabs[tab] = true;
+    screen.width <= 1025 && !route && !vehicle && toggleSidebar ? this.toggleSidebar() : ''; 
+  }
+
+  toggleSidebar(): void {
+    this.sidebar  = !this.sidebar;
   }
 
 }

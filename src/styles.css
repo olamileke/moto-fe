@@ -48,6 +48,11 @@ html
     top:-5vh;
 }
 
+.z--9999
+{
+    z-index:-9999;
+}
+
 .no__resource div
 {
     top:-12vh;
@@ -75,3 +80,50 @@ html
     -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
     box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.3);
 }
+
+@media(max-width:1025px)
+{
+    .no__resource, .form__container
+    {
+        height:calc(100vh - 136px);
+    }
+
+    .form__parent
+    {
+        top:-7.5vh;
+    }
+
+    .back__icon
+    {
+        right:3vh;
+        bottom:3vh;
+    }
+}
+
+@media(max-width:768px)
+{
+    .no__resource, .form__container
+    {
+        height:calc(100vh - 120px);
+    }
+
+    .back__icon
+    {
+        right:4vh;
+        bottom:4vh;
+    }
+}
+
+@media(max-width:576px)
+{
+    .no__resource, .form__container
+    {
+        height:calc(100vh - 104px);
+    }
+
+    .form__parent
+    {
+        top:-5vh;
+    }
+}
+

@@ -1,11 +1,11 @@
 
-<div>
-    <div class='px-6 mb-10'>
+<div class='sidebar__parent relative'> 
+    <div class='px-6 mb-10 hidden lg:block'>
         <button (click)="switch('add_vehicle')" class='focus:outline-none p-4 text-white rounded text-sm lowercase w-full shadow'>Add new Vehicle</button>
     </div>
 
     <ul class='px-6 text-white text-sm lowercase'>
-        <li [class.shadow]='tabs.requests || tabs.add_vehicle' (click)="switch('requests')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
+        <li [class.shadow]='(!lg && (tabs.requests || tabs.add_vehicle)) || (lg && (tabs.requests))' (click)="switch('requests')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-tasks mr-5'></i>
             <p class='m-0'>Requests</p>
         </li>
@@ -16,6 +16,10 @@
         <li [class.shadow]='tabs.routes' (click)="switch('routes')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-road mr-5'></i>
             <p class='m-0'>Routes</p>
+        </li>
+        <li [class.shadow]='tabs.add_vehicle' (click)="switch('add_vehicle')" class='flex flex-row items-center lg:hidden px-4 py-3 mb-3 rounded cursor-pointer'>
+            <i class='fa fa-plus mr-5'></i>
+            <p class='m-0'>New Vehicle</p>
         </li>
         <li [class.shadow]='tabs.vehicles' (click)="switch('vehicles')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-car mr-5'></i>

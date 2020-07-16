@@ -5,7 +5,7 @@
     <div class='col-start-2 col-end-12 sm:col-start-3 sm:col-end-11 md:col-start-8 md:col-end-12 lg:col-end-11 flex flex-row items-center'>
         <form [formGroup]='signupForm' (ngSubmit)='signup(signupForm)' class='p-5 border w-full quicksand' *ngIf="authType == 'signup'">
             <div class='flex flex-col mb-3'>
-                <label class='mb-2 text-gray-600 text-sm' for='name'>name</label>
+                <label class='mb-2 text-gray-600 text-sm' for='name'>name</label> 
                 <input type='text' id='name' formControlName='name' class='capitalize focus:outline-none text-sm text-gray-600 p-3 bg-transparent border'>
                 <p class='m-0 mt-2 text-xs' style='color:#EA3C53' *ngIf='signupName.dirty && signupName.invalid'>name must be at least 6 characters</p>
             </div>

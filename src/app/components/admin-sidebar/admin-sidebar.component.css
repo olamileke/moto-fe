@@ -3,3 +3,19 @@
 {
     font-family:"Quicksand", sans-serif;
 }
+
+@media(max-width:1025px)
+{
+    .sidebar__parent
+    {
+        top:-6vh;
+    }
+}
+
+@media(max-width:500px)
+{
+    .sidebar__parent
+    {
+        top:0;
+    }
+}

@@ -2,11 +2,11 @@
 
 <div class='w-screen min-h-screen' style='background:rgba(0,0,0,0.009)'>
     <div class='grid grid-cols-12'> 
-        <div class='h-screen pt-24 sidebar bg-coppergreen'>
-            <app-sidebar (switchTab)='switchTab($event)'></app-sidebar>
-        </div>
+        <div [class.active]='sidebar' class='transition-all ease-in duration-500 z-40 flex flex-col justify-center lg:justify-start block h-screen pt-16 lg:pt-24 sidebar z-50 bg-coppergreen'>
+            <app-sidebar (switchTab)="switchTab($event, null, true)"></app-sidebar>
+        </div> 
         <div [ngClass]="{'h-screen':display | async, 'overflow-y-hidden':display | async}" class='col-span-12 main'>
-            <app-header></app-header>
+            <app-header (sidebar)='toggleSidebar()'></app-header>
             <app-all-requests *ngIf='tabs.all_requests'></app-all-requests>
             <app-request *ngIf='tabs.request' (switch)="switchTab($event)" [vehicle]='selectedVehicle'></app-request>
             <app-routes *ngIf='tabs.routes'></app-routes>
@@ -16,3 +16,5 @@
         </div>
     </div>
 </div>
+
+<div (click)='toggleSidebar()' [ngClass]="{'z-40':sidebar, 'opacity-100':sidebar, 'z--9999':!sidebar}" class='transition-all ease-in duration-500 opacity-0 fixed top-0 left-0 w-screen h-screen' style='background:rgba(0,0,0,0.1)'></div>

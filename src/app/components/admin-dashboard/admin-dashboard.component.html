@@ -1,20 +1,22 @@
 
 <div class='w-screen min-h-screen' style='background:rgba(0,0,0,0.009)'>
     <div class='grid grid-cols-12'>
-        <div class='hidden lg:block h-screen pt-24 sidebar bg-coppergreen'>
-            <app-admin-sidebar (switchTab)="switchTab($event)"></app-admin-sidebar>
+        <div [class.active]='sidebar' class='transition-all ease-in duration-500 z-40 flex flex-col justify-center lg:justify-start block h-screen lg:pt-24 sidebar z-50 bg-coppergreen'>
+            <app-admin-sidebar (switchTab)="switchTab($event, null, null, true)"></app-admin-sidebar>
         </div>
         <div [ngClass]="{'h-screen':display | async, 'overflow-y-hidden':display | async}" class='col-span-12 main'>
-            <app-header></app-header>
+            <app-header (sidebar)='toggleSidebar()'></app-header>
             <app-all-requests *ngIf='tabs.requests'></app-all-requests>
             <app-add-vehicle *ngIf='tabs.add_vehicle'></app-add-vehicle>
             <app-new-route *ngIf='tabs.new_route'></app-new-route>
             <app-edit-route (viewRoute)="switchTab('routes')" *ngIf='tabs.edit_route' [route]='activeRoute'></app-edit-route>
             <app-routes (edit)="switchTab('edit_route', $event)" *ngIf='tabs.routes'></app-routes>
             <app-vehicles (edit)="switchTab('edit_vehicle', null, $event)" *ngIf='tabs.vehicles'></app-vehicles>
-            <app-edit-vehicle [vehicle]='activeVehicle' (viewVehicles)="switchTab('vehicles')" *ngIf='tabs.edit_vehicle'></app-edit-vehicle>
+            <app-edit-vehicle [vehicle]='activeVehicle' (viewVehicles)="switchTab('vehicles', null, null)" *ngIf='tabs.edit_vehicle'></app-edit-vehicle>
             <app-drivers *ngIf='tabs.drivers'></app-drivers>
             <app-maintenance *ngIf='tabs.maintenance'></app-maintenance>
         </div>
     </div>
 </div>
+
+<div (click)='toggleSidebar()' [ngClass]="{'z-40':sidebar, 'opacity-100':sidebar, 'z--9999':!sidebar}" class='transition-all ease-in duration-500 opacity-0 fixed top-0 left-0 w-screen h-screen' style='background:rgba(0,0,0,0.1)'></div>
