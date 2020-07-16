@@ -4,6 +4,11 @@
     min-width:175px;
 }
 
+.user__image
+{
+    border-radius:50%;
+}
+
 .options__parent
 {
     background:rgba(8, 8, 8, 0.4);
@@ -29,4 +34,12 @@
     border-left-color:transparent;
     border-right-color:transparent;
     border-top-color:transparent;
+}
+
+@media(max-width:1025px)
+{
+    .user__image
+    {
+        border-radius:12px;
+    }
 }

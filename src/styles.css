@@ -1,18 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
-html
-{
-    -moz-osx-font-smoothing:grayscale;
-    -webkit-font-smoothing:antialiased;
-    font-smoothing:antialiased;
-    font-weight:400;
-}
 
 @-moz-document url-prefix()
 {
-    body
+    .firefox__font
     {
-        font-weight:lighter !important;
+        font-weight:normal;
     }
 }
 
@@ -111,6 +104,15 @@ html
     {
         right:4vh;
         bottom:4vh;
+    }
+}
+
+@media(max-width:600px)
+{
+    .back__icon
+    {
+        right:3vh;
+        bottom:3vh;
     }
 }
 

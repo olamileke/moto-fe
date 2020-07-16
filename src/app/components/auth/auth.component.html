@@ -20,7 +20,7 @@
                 <p class='m-0 mt-2 text-xs' style='color:#EA3C53' *ngIf='signupPassword.dirty && signupPassword.invalid'>password must be atleast 8 characters</p>
             </div>
             <div class='flex flex-col'>
-                <button type='submit' class='focus:outline-none text-white bg-coppergreen btn px-3 py-2 rounded mb-2' style='width:fit-content;' [disabled]='signupForm.invalid'>signup</button>
+                <button type='submit' class='focus:outline-none text-white bg-coppergreen btn px-3 py-2 rounded mb-2' style='width:max-content;' [disabled]='signupForm.invalid'>signup</button>
                 <a class='text-gray-600 cursor-pointer' (click)="switchAuth('login')">login</a>
             </div>
         </form>
@@ -36,7 +36,7 @@
                 <p class='m-0 mt-2 text-xs' style='color:#EA3C53' *ngIf='loginPassword.dirty && loginPassword.invalid'>password must be at least 8 characters</p>
             </div>
             <div class='flex flex-col'>
-                <button type='submit' class='focus:outline-none text-white bg-coppergreen btn px-3 py-2 rounded mb-2' style='width:fit-content;' [disabled]='loginForm.invalid'>login</button>
+                <button type='submit' class='focus:outline-none text-white bg-coppergreen btn px-3 py-2 rounded mb-2' style='width:max-content;' [disabled]='loginForm.invalid'>login</button>
                 <a class='text-gray-600 cursor-pointer mb-2' (click)="switchAuth('login')">forgot password</a>
                 <a class='text-gray-600 cursor-pointer' (click)="switchAuth('signup')">signup</a>
             </div>
