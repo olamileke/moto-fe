@@ -24,4 +24,9 @@ export class VehicleService {
         const url = environment.api_url + 'vehicles/' + String(id);
         return this.http.put<VehicleData>(url, data);
     }
+
+    patch(vehicleID:string, active:boolean): Observable<VehicleData> {
+        const url = environment.api_url + `vehicles/${vehicleID}?active=${active}`;
+        return this.http.patch<VehicleData>(url, {});
+    }
 }

@@ -15,9 +15,9 @@ export class RouteService {
         return this.http.post<RouteData>(url, data);
     }
 
-    get(page:number | null = null): Observable<RoutesData> {
+    get(admin:boolean, page:number | null = null): Observable<RoutesData> {
         let url;
-        page ? url = environment.api_url + 'routes?page=' + page : url = environment.api_url + 'routes?all=true';
+        page ? url = environment.api_url + `routes?admin=${admin}&page=${page}` : url = environment.api_url + `routes?admin=${admin}&all=true`;
         return this.http.get<RoutesData>(url);
     }
 
@@ -26,8 +26,8 @@ export class RouteService {
         return this.http.put<RouteData>(url, data);
     } 
     
-    delete(routeID:string): Observable<any> {
-        const url = environment.api_url + 'routes/' + routeID;
-        return this.http.delete<any>(url);
+    patch(routeID:string, active:boolean): Observable<RouteData> {
+        const url = environment.api_url + `routes/${routeID}?active=${active}`;
+        return this.http.patch<RouteData>(url, {});
     }
 }

@@ -8,23 +8,27 @@
         </div>
     </div>
 
-    <div class='col-span-12 lg:col-start-2 lg:col-end-12 grid grid-cols-12 flex flex-col' *ngIf='vehicles.length > 0'>
-        <div class='col-span-12 bsm:col-span-6 lg:col-span-4 mx-2 text-gray-800 shadow-md mb-4 p-4 flex flex-col' *ngFor='let vehicle of vehicles'>
+    <div [class.pb-6]='pages == 1' class='col-span-12 lg:col-start-2 lg:col-end-12 grid grid-cols-12 flex flex-col' *ngIf='vehicles.length > 0'>
+        <div class='col-span-12 bsm:col-span-6 lg:col-span-4 mx-2 text-gray-800 shadow-md mb-4 p-4 flex flex-col' *ngFor='let vehicle of vehicles; let j = index'>
             <div class='flex flex-row justify-between items-center mb-4'>
                 <div class='relative'>
                     <img src='{{ vehicle.picture }}' class='h-16 w-16 object-cover'>
                      <div (click)='viewImage(vehicle.picture)' class='cursor-pointer absolute top-0 left-0 mr-4 w-16 h-full' style='background:rgba(0,0,0,0.1)'></div>
                 </div>
                 <div class='flex flex-row mr-8' *ngIf='admin'>
-                    <div *ngIf='!vehicle.pending && !determineInOperation(vehicle.reserved_till)'>
+                    <div *ngIf='vehicle.active && !vehicle.pending && !determineInOperation(vehicle.reserved_till)'>
                         <a class='cursor-pointer underline mr-2' (click)='editVehicle(vehicle)'>edit</a>
-                        <a class='cursor-pointer underline'>delete</a>
+                        <a class='cursor-pointer underline' (click)='patchVehicle(vehicle._id, j, false)'>remove</a>
                     </div>
-                    <div class='text-black' *ngIf='vehicle.pending'>
+                    <div *ngIf='!vehicle.active && !vehicle.pending && !determineInOperation(vehicle.reserved_till)'>
+                        <a class='cursor-pointer mr-2'>removed</a>
+                        <a class='cursor-pointer underline' (click)='patchVehicle(vehicle._id, j, true)'>add</a>
+                    </div>
+                    <div class='pending request text-black' *ngIf='vehicle.pending'>
                        requested
                     </div>
                     <div class='text-black' *ngIf='determineInOperation(vehicle.reserved_till)'>
-                        in operation
+                        active currently
                     </div>
                 </div> 
                 <div class='flex flex-row mr-10' *ngIf='!admin'>
@@ -35,7 +39,12 @@
                 <p class='m-0 mb-1 lowercase font-semibold'>{{ vehicle.model }}</p>
                 <p class='m-0 mb-1'>plate number - {{ vehicle.plate_number }}</p>
                 <p class='m-0 mb-1'>{{ vehicle.trips }} trips</p>
-                <p class='m-0'>added {{ getDate(vehicle.created_at) }}</p>
+                <p class='m-0 mb-1'>added {{ getDate(vehicle.created_at) }}</p>
+                <p class='m-0' *ngIf='vehicle.active && determineInOperation(vehicle.reserved_till)'>active till {{ getDate(vehicle.reserved_till) }}</p>
+                <p class='m-0' *ngIf='vehicle.active && !determineInOperation(vehicle.reserved_till)'>
+                    available for requesting
+                </p>
+                <p class='m-0' *ngIf='!vehicle.active'>not available for requesting</p>
             </div>
         </div>
     </div>

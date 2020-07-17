@@ -30,7 +30,7 @@ export class RequestComponent implements OnInit {
   }
 
   getRoutes(): void {
-    this.route.get().subscribe((res:RoutesData) => {
+    this.route.get(false).subscribe((res:RoutesData) => {
         this.routes = res.data.routes;
         this.dataFetched = true;
         this.createForm();

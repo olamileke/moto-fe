@@ -1,9 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { VehicleService } from '../../services/vehicle.service';
 import { VehiclesData } from '../../models/vehicles.data';
+import { VehicleData } from '../../models/vehicle.data';
 import { Vehicle } from '../../models/vehicle';
 import { DateService } from '../../services/date.service';
 import { ImageService } from '../../services/image.service';
+import { NotifService } from '../../services/notif.service';
 import { environment } from '../../../environments/environment.prod';
  
 @Component({
@@ -13,7 +15,9 @@ import { environment } from '../../../environments/environment.prod';
 })
 export class VehiclesComponent implements OnInit {
 
-  constructor(private vehicle:VehicleService, private date:DateService, private image:ImageService) { }
+  constructor(private vehicle:VehicleService, private date:DateService, private notif:NotifService,
+  private image:ImageService) { }
+
   admin:boolean;
   vehicles:Vehicle[];
   dataFetched:boolean = false;
@@ -46,6 +50,13 @@ export class VehiclesComponent implements OnInit {
 
   editVehicle(vehicle:Vehicle): void {
     this.edit.emit(vehicle)
+  }
+
+  patchVehicle(id:string, index:number, active:boolean): void {
+    this.vehicle.patch(id, active).subscribe((res:VehicleData) => {
+        this.vehicles[index] = res.data.vehicle;
+        active ? this.notif.success('Vehicle added successfully') : this.notif.success('Vehicle removed successfully');
+    })
   }
 
   viewImage(url:string): void {

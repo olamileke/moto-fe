@@ -48,7 +48,7 @@
 
 .no__resource div
 {
-    top:-12vh;
+    top:-10vh;
 }
 
 .back__icon
@@ -91,6 +91,11 @@
         right:3vh;
         bottom:3vh;
     }
+
+    .no__resource div
+    {
+        top:-8vh;
+    }
 }
 
 @media(max-width:768px)
@@ -126,6 +131,11 @@
     .form__parent
     {
         top:-5vh;
+    }
+
+    .no__resource div
+    {
+        top:-7vh;
     }
 }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { RouteService } from '../../services/route.service';
 import { RoutesData } from '../../models/routes.data';
+import { RouteData } from '../../models/route.data';
 import { Route } from '../../models/route';
 import { DateService } from '../../services/date.service';
 import { NotifService } from '../../services/notif.service';
@@ -28,7 +29,7 @@ export class RoutesComponent implements OnInit {
 
   getRoutes(page:number): void {
     this.admin = JSON.parse(localStorage.getItem('moto_user')).admin;
-    this.route.get(page).subscribe((res:RoutesData) => {
+    this.route.get(this.admin, page).subscribe((res:RoutesData) => {
         this.routes = res.data.routes;
         this.dataFetched = true;
         this.activePage = page;
@@ -44,8 +45,11 @@ export class RoutesComponent implements OnInit {
     this.edit.emit(route);
   }
 
-  deleteRoute(id:string, index:number): void {
-
+  patchRoute(id:string, index:number, active:boolean): void {
+    this.route.patch(id, active).subscribe((res:RouteData) => {
+        this.routes[index] = res.data.route;
+        active ? this.notif.success('Route added successfully') : this.notif.success('Route canceled successfully');
+    })
   }
 
 }

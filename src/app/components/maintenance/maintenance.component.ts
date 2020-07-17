@@ -6,6 +6,7 @@ import { DateService } from '../../services/date.service';
 import { IssueData } from 'src/app/models/issue.data';
 import { ImageService } from '../../services/image.service';
 import { NotifService } from '../../services/notif.service';
+import { environment } from '../../../environments/environment.prod';
 
 @Component({
   selector: 'app-maintenance',
@@ -20,6 +21,8 @@ export class MaintenanceComponent implements OnInit {
   issues:Issue[];
   dataFetched:boolean = false;
   admin:boolean;
+  pages:number = 1;
+  activePage:number;
 
   ngOnInit(): void {
     this.getIssues(1);
@@ -30,6 +33,8 @@ export class MaintenanceComponent implements OnInit {
     this.issue.get(this.admin, page).subscribe((res:IssuesData) => {
         this.issues = res.data.issues;
         this.dataFetched = true;
+        this.activePage = page;
+        this.pages = Math.ceil(res.data.total / (environment.per_page + 1));
     })
   }
 

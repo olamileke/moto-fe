@@ -8,15 +8,19 @@
         </div>
     </div>
 
-    <div class='col-span-12 lg:col-start-2 lg:col-end-12 grid grid-cols-12 flex flex-col' *ngIf='routes.length > 0'>
+    <div [class.pb-6]='pages == 1' class='col-span-12 lg:col-start-2 lg:col-end-12 grid grid-cols-12 flex flex-col' *ngIf='routes.length > 0'>
         <div class='col-span-12 bsm:col-span-6 lg:col-span-4 bg-white shadow-lg flex flex-col mx-2 mb-4 p-5' *ngFor='let route of routes; let j = index'>
             <div class='flex flex-row justify-between items-center'>
                 <div class='w-12 h-12 text-white flex flex-row justify-center items-center font-semibold' style='background:#52796f'>
                     {{ route.name | slice:0:1 }}
                 </div>
-                <div class='flex flex-row mr-5 text-gray-700' *ngIf='admin'>
+                <div class='flex flex-row mr-5 text-gray-700' *ngIf='admin && route.active'>
                     <a class='m-0 mr-2 underline cursor-pointer' (click)='editRoute(route)'>edit</a>
-                    <a class='m-0 underline cursor-pointer' (click)='deleteRoute(route._id, j)'>delete</a> 
+                    <a class='m-0 underline cursor-pointer' (click)='patchRoute(route._id, j, false)'>cancel</a> 
+                </div>
+                <div class='flex flex-row mr-5 text-gray-700' *ngIf='admin && !route.active'>
+                    <a class='m-0 mr-2 cursor-pointer' (click)='editRoute(route)'>cancelled</a>
+                    <a class='m-0 underline cursor-pointer' (click)='patchRoute(route._id, j, true)'>add</a> 
                 </div>
             </div>
             <div class='flex flex-col text-gray-800 mt-4'>
