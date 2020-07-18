@@ -25,6 +25,11 @@ export class ErrorInterceptor implements HttpInterceptor {
                 this.notif.error('User with email exists already');
                 displayed = true;
             }
+
+            if(error.status == 404) {
+                this.notif.error('invalid token');
+                displayed = true;
+            }
         }
 
         if(url == 'vehicles' && error.status == 403) {

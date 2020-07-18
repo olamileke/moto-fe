@@ -22,9 +22,14 @@ export class UserService {
         return this.http.get<UsersData>(url);
     }
 
-    edit(data:FormData): Observable<UserData> {
-        const url = environment.api_url + 'users?field=avatar';
-        return this.http.patch<UserData>(url, data);
+    changeAvatar(data:FormData): Observable<UserData> {
+        const url = environment.api_url + 'users';
+        return this.http.put<UserData>(url, data);
+    }
+
+    activate(token:string): Observable<UserData> {
+        const url = environment.api_url + `users?field=activation_token&token=${token}`;
+        return this.http.patch<UserData>(url, {}) 
     }
 
     authenticate(data:any): Observable<UserData> {

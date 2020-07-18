@@ -21,14 +21,16 @@
                         <a class='cursor-pointer underline' (click)='patchVehicle(vehicle._id, j, false)'>remove</a>
                     </div>
                     <div *ngIf='!vehicle.active && !vehicle.pending && !determineInOperation(vehicle.reserved_till)'>
+                        <i class='fa fa-exclamation-triangle mr-2' style='color:#EA3C53'></i>
                         <a class='cursor-pointer mr-2'>removed</a>
                         <a class='cursor-pointer underline' (click)='patchVehicle(vehicle._id, j, true)'>add</a>
                     </div>
                     <div class='pending request text-black' *ngIf='vehicle.pending'>
                        requested
                     </div>
-                    <div class='text-black' *ngIf='determineInOperation(vehicle.reserved_till)'>
-                        active currently
+                    <div class='text-black flex flex-row items-center' *ngIf='determineInOperation(vehicle.reserved_till)'>
+                        <i class='text-coppergreen fa fa-check-circle mr-2'></i>
+                        <p class='m-0'>active</p>
                     </div>
                 </div> 
                 <div class='flex flex-row mr-10' *ngIf='!admin'>

@@ -11,7 +11,8 @@ import { DashboardParentComponent } from './components/dashboard-parent/dashboar
 const routes:Routes = [
                         { path:'', component:HomeComponent, canActivate:[GuestGuard] },
                         { path:'auth/:type', component:AuthComponent, canActivate:[GuestGuard] },
-                        { path:'admin/auth/:type', component:AuthComponent, canActivate:[GuestGuard]},
+                        { path:'admin/auth/:type', component:AuthComponent, canActivate:[GuestGuard] },
+                        { path:'account/activate/:token', component:AuthComponent, canActivate:[GuestGuard] },
                         { path:'dashboard', component:DashboardParentComponent, canActivate:[AuthGuard] }
                         ];
 

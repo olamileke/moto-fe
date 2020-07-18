@@ -26,6 +26,16 @@ export class AuthComponent implements OnInit {
 
   determineAuth(): void {
     const type = this.route.snapshot.paramMap.get('type');
+    const token = this.route.snapshot.paramMap.get('token');
+
+    if(token) {
+        this.authType = 'login';
+        this.createSignupForm();
+        this.createLoginForm();
+        this.user.activate(token).subscribe((res:UserData) => {
+            this.notif.success('Account activated successfully');
+        })
+    }
 
     if(type == 'signup' || type == 'login') {
         this.authType = type; 

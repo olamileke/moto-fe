@@ -56,10 +56,11 @@ export class HeaderComponent implements OnInit {
     const formData = new FormData();
     formData.append('image', this.selectedUserImage);
     
-    this.user_service.edit(formData).subscribe((res:UserData) => {
+    this.user_service.changeAvatar(formData).subscribe((res:UserData) => {
         this.notif.success('Avatar changed successfully');
         this.user = res.data.user;
         this.showOptions = false;
+        this.imageUploaded = false;
         localStorage.setItem('moto_user', JSON.stringify(res.data.user));
     })
   }
