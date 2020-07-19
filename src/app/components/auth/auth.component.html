@@ -37,7 +37,7 @@
             </div>
             <div class='flex flex-col'>
                 <button type='submit' class='focus:outline-none text-white bg-coppergreen btn px-3 py-2 rounded mb-2' style='width:max-content;' [disabled]='loginForm.invalid'>login</button>
-                <a class='text-gray-600 cursor-pointer mb-2' (click)="switchAuth('login')">forgot password</a>
+                <a class='text-gray-600 cursor-pointer mb-2' (click)="verifyEmail()">forgot password</a>
                 <a class='text-gray-600 cursor-pointer' (click)="switchAuth('signup')">signup</a>
             </div>
         </form>

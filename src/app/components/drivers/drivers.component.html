@@ -25,7 +25,7 @@
                 <p class='m-0 mb-1'>joined {{ getDateString(driver.created_at) }}</p>
                 <p class='m-0 mb-1'>{{ driver.trips }} trips</p>
                 <p class='m-0' *ngIf='determineInOperation(driver.busy_till)'>busy till {{ getDateString(driver.busy_till) }}</p>
-                <p class='m-0' *ngIf='!determineInOperation(driver.busy_till)'>available</p>
+                <p class='m-0' *ngIf='!determineInOperation(driver.busy_till)'>available for trips</p>
             </div>
         </div>
     </div> 

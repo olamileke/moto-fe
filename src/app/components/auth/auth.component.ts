@@ -32,9 +32,11 @@ export class AuthComponent implements OnInit {
         this.authType = 'login';
         this.createSignupForm();
         this.createLoginForm();
-        this.user.activate(token).subscribe((res:UserData) => {
+        const data = { token:token }
+        this.user.activate(data).subscribe((res:UserData) => {
             this.notif.success('Account activated successfully');
         })
+        return;
     }
 
     if(type == 'signup' || type == 'login') {
@@ -44,7 +46,6 @@ export class AuthComponent implements OnInit {
         this.createSignupForm();
         this.createLoginForm();
     }
-
   }
 
   createSignupForm(): void {
@@ -75,6 +76,19 @@ export class AuthComponent implements OnInit {
         localStorage.setItem('moto_token', res.data.token);
         this.router.navigate(['/dashboard']);
         this.notif.success('Logged in successfully');
+    })
+  }
+
+  verifyEmail(): void {
+    if(this.loginEmail.invalid) {
+        this.notif.error('Enter a valid email');
+        return;
+    }
+
+    const data = { email:this.loginEmail.value };
+    this.user.verifyEmail(data).subscribe((res:any) => {
+        this.loginForm.reset();
+        this.notif.success('Check your email to complete the process');
     })
   }
 

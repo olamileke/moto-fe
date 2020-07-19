@@ -27,15 +27,30 @@ export class UserService {
         return this.http.put<UserData>(url, data);
     }
 
-    activate(token:string): Observable<UserData> {
-        const url = environment.api_url + `users?field=activation_token&token=${token}`;
-        return this.http.patch<UserData>(url, {}) 
+    activate(data:any): Observable<UserData> {
+        const url = environment.api_url + `users?field=activation_token`;
+        return this.http.patch<UserData>(url, data); 
     }
 
     authenticate(data:any): Observable<UserData> {
         const url = environment.api_url + 'authenticate';
         return this.http.post<UserData>(url, data);
-    } 
+    }
+    
+    verifyEmail(data:any): Observable<any> {
+        const url = environment.api_url + 'passwords/reset?action=verify_email';
+        return this.http.post<any>(url, data);
+    }
+
+    verifyResetToken(data:any): Observable<any> {
+        const url = environment.api_url + 'passwords/reset?action=verify_token';
+        return this.http.post<any>(url, data);
+    }
+
+    resetPassword(data:any): Observable<UserData> {
+        const url = environment.api_url + 'users?field=password';
+        return this.http.patch<UserData>(url, data)
+    }
 
     logout(): void {
         const user = JSON.parse(localStorage.getItem('moto_user'));

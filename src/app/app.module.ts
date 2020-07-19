@@ -33,6 +33,7 @@ import { EditVehicleComponent } from './components/edit-vehicle/edit-vehicle.com
 import { ReportComponent } from './components/report/report.component';
 import { MaintenanceComponent } from './components/maintenance/maintenance.component';
 import { ViewImageComponent } from './components/view-image/view-image.component';
+import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { ViewImageComponent } from './components/view-image/view-image.component
     EditVehicleComponent,
     ReportComponent,
     MaintenanceComponent,
-    ViewImageComponent
+    ViewImageComponent,
+    PasswordResetComponent
   ],
   imports: [
     BrowserModule,

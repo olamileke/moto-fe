@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpEvent, HttpHandler } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { NotifService } from '../services/notif.service';
 import { environment } from '../../environments/environment.prod';
@@ -8,7 +9,7 @@ import { environment } from '../../environments/environment.prod';
 @Injectable({ providedIn:'root' })
 export class ErrorInterceptor implements HttpInterceptor {
 
-    constructor(private notif:NotifService) {}
+    constructor(private router:Router, private notif:NotifService) {}
 
     intercept(req:HttpRequest<any>, next:HttpHandler): Observable<HttpEvent<any>> {
 
@@ -78,6 +79,25 @@ export class ErrorInterceptor implements HttpInterceptor {
                 displayed = true;
             }
         }
+
+        if(url.includes('passwords/reset')) {
+            if(error.status == 404 && error.error.message.includes('user')) {
+                this.notif.error('user with email does not exist');
+                displayed = true;
+            }
+
+            if(error.status == 404 && error.error.message.includes('invalid')) {
+                this.notif.error('invalid reset token');
+                this.router.navigate(['/auth/login']);
+                displayed = true;
+            }
+
+            if(error.status == 404 && error.error.message.includes('expired')) {
+                this.notif.error('expired reset token');
+                this.router.navigate(['/auth/login']);
+                displayed = true;
+            }
+        } 
 
         if(url == 'authenticate') {
             if(error.status == 404) {
