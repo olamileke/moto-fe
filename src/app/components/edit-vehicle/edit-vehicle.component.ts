@@ -62,6 +62,7 @@ export class EditVehicleComponent implements OnInit {
     this.vehicle_picture ? formData.append('image', this.vehicle_picture) : '';
 
     this.vehicle_service.edit(this.vehicle._id, formData).subscribe((res:VehicleData) => {
+        this.view();
         this.notif.success('Vehice updated successfully');
     })
   }

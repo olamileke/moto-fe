@@ -50,6 +50,8 @@ export class AddVehicleComponent implements OnInit {
     formData.append('plate_number', form.get('plate_number').value);
 
     this.vehicle.create(formData).subscribe((res:VehicleData) => {
+        form.reset();
+        this.imageUploaded = false;
         this.notif.success('Vehicle added successfully');
     })
   }

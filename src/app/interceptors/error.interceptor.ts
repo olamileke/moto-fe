@@ -4,12 +4,13 @@ import { Observable, of } from 'rxjs';
 import { Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { NotifService } from '../services/notif.service';
+import { UserService } from '../services/user.service';
 import { environment } from '../../environments/environment.prod';
 
 @Injectable({ providedIn:'root' })
 export class ErrorInterceptor implements HttpInterceptor {
 
-    constructor(private router:Router, private notif:NotifService) {}
+    constructor(private router:Router, private notif:NotifService, private user:UserService) {}
 
     intercept(req:HttpRequest<any>, next:HttpHandler): Observable<HttpEvent<any>> {
 
@@ -20,6 +21,12 @@ export class ErrorInterceptor implements HttpInterceptor {
         console.log(error);
         let displayed = false;
         const url = error.url.split(environment.api_url)[1];
+
+        if(error.status == 401) {
+            this.notif.error('not authenticated');
+            this.user.logout();
+            displayed = true;
+        }
 
         if(url.includes('users')) {
             if(error.status == 403) {

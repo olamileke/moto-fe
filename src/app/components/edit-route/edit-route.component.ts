@@ -31,6 +31,7 @@ export class EditRouteComponent implements OnInit {
 
   submit(form:FormGroup): void {
     this.rte.edit(form.value, this.route._id).subscribe((res:RouteData) => {
+        this.view();
         this.notif.success('Route updated successfully');
     })
   }
