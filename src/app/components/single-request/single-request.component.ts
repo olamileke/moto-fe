@@ -32,8 +32,8 @@ export class SingleRequestComponent implements OnInit {
   }
 
   update(approved:boolean) {
-    const data = { requestID:this.request._id };
-    this.request_service.update(data, approved).subscribe((res:RequestData) => {
+
+    this.request_service.update(this.request._id, approved).subscribe((res:RequestData) => {
 
         if(approved) { this.notif.success('Request granted')} else { this.notif.error('Request denied') };
         this.request.pending = false;
