@@ -15,7 +15,8 @@
                     <img src='{{ driver.avatar }}' class='h-16 w-16 object-cover'>
                     <div (click)='viewImage(driver.avatar)' class='cursor-pointer absolute top-0 left-0 mr-4 w-16 h-full' style='background:rgba(0,0,0,0.1)' *ngIf="!driver.avatar.includes('anon.png')"></div>
                 </div>
-                <div class='mr-12'>
+                <div class='mr-12 flex flex-row items-center'>
+                    <i class='text-coppergreen fa fa-check-circle mr-2' *ngIf='determineInOperation(driver.busy_till)'></i>
                     <p class='m-0' *ngIf='determineInOperation(driver.busy_till)'>active</p>
                     <p class='m-0' *ngIf='!determineInOperation(driver.busy_till)'>free</p>
                 </div>
@@ -23,7 +24,7 @@
             <div class='flex flex-col'>
                 <p class='m-0 mb-1 font-semibold' style='font-size:0.9em;'>{{ driver.name }}</p>
                 <p class='m-0 mb-1'>joined {{ getDateString(driver.created_at) }}</p>
-                <p class='m-0 mb-1'>{{ driver.trips }} trips</p>
+                <p class='m-0 mb-1'>{{ driver.trips }} trips</p> 
                 <p class='m-0' *ngIf='determineInOperation(driver.busy_till)'>busy till {{ getDateString(driver.busy_till) }}</p>
                 <p class='m-0' *ngIf='!determineInOperation(driver.busy_till)'>available for trips</p>
             </div>

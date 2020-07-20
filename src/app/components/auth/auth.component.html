@@ -7,17 +7,17 @@
             <div class='flex flex-col mb-3'>
                 <label class='mb-2 text-gray-600 text-sm' for='name'>name</label> 
                 <input type='text' id='name' formControlName='name' class='capitalize focus:outline-none text-sm text-gray-600 p-3 bg-transparent border'>
-                <p class='m-0 mt-2 text-xs' style='color:#EA3C53' *ngIf='signupName.dirty && signupName.invalid'>name must be at least 6 characters</p>
+                <p class='m-0 mt-2 text-xs text-scarletred' *ngIf='signupName.dirty && signupName.invalid'>name must be at least 6 characters</p>
             </div>
             <div class='flex flex-col mb-3'>
                 <label class='mb-2 text-gray-600 text-sm' for='email'>email</label>
                 <input type='email' id='email' formControlName='email' class='lowercase focus:outline-none text-sm text-gray-600 p-3 bg-transparent border'>
-                <p class='m-0 mt-2 text-xs' style='color:#EA3C53' *ngIf='signupEmail.dirty && signupEmail.invalid'>enter a valid email</p>
+                <p class='m-0 mt-2 text-xs text-scarletred' *ngIf='signupEmail.dirty && signupEmail.invalid'>enter a valid email</p>
             </div>
             <div class='flex flex-col mb-5'>
                 <label class='mb-2 text-gray-600 text-sm' for='password'>password</label>
                 <input type='password' id='password' formControlName='password' class='focus:outline-none text-sm text-gray-600 p-3 bg-transparent border'>
-                <p class='m-0 mt-2 text-xs' style='color:#EA3C53' *ngIf='signupPassword.dirty && signupPassword.invalid'>password must be atleast 8 characters</p>
+                <p class='m-0 mt-2 text-xs text-scarletred' *ngIf='signupPassword.dirty && signupPassword.invalid'>password must be atleast 8 characters</p>
             </div>
             <div class='flex flex-col'>
                 <button type='submit' class='focus:outline-none text-white bg-coppergreen btn px-3 py-2 rounded mb-2' style='width:max-content;' [disabled]='signupForm.invalid'>signup</button>
@@ -28,17 +28,17 @@
             <div class='flex flex-col mb-3'>
                 <label class='mb-2 text-gray-600 text-sm' for='email'>email</label>
                 <input type='email' id='email' formControlName='email' class='lowercase focus:outline-none text-sm text-gray-600 p-3 bg-transparent border'>
-                <p class='m-0 mt-2 text-xs' style='color:#EA3C53' *ngIf='loginEmail.dirty && loginEmail.invalid'>enter a valid email</p>
+                <p class='m-0 mt-2 text-xs text-scarletred' *ngIf='loginEmail.dirty && loginEmail.invalid'>enter a valid email</p>
             </div>
             <div class='flex flex-col mb-5'>
                 <label class='mb-2 text-gray-600 text-sm' for='password'>password</label>
                 <input type='password' id='password' formControlName='password' class='focus:outline-none text-sm text-gray-600 p-3 bg-transparent border'>
-                <p class='m-0 mt-2 text-xs' style='color:#EA3C53' *ngIf='loginPassword.dirty && loginPassword.invalid'>password must be at least 8 characters</p>
+                <p class='m-0 mt-2 text-xs text-scarletred' *ngIf='loginPassword.dirty && loginPassword.invalid'>password must be at least 8 characters</p>
             </div>
             <div class='flex flex-col'>
                 <button type='submit' class='focus:outline-none text-white bg-coppergreen btn px-3 py-2 rounded mb-2' style='width:max-content;' [disabled]='loginForm.invalid'>login</button>
-                <a class='text-gray-600 cursor-pointer mb-2' (click)="verifyEmail()">forgot password</a>
-                <a class='text-gray-600 cursor-pointer' (click)="switchAuth('signup')">signup</a>
+                <a class='text-gray-600 cursor-pointer mb-2' (click)="verifyEmail()" style='font-size:0.95em;'>forgot password</a>
+                <a class='text-gray-600 cursor-pointer' (click)="switchAuth('signup')" style='font-size:0.95em;'>signup</a>
             </div>
         </form>
     </div>

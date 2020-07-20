@@ -12,7 +12,8 @@ module.exports = {
           colors:{
               'honeydew':'#EBF5DF',
               'teagreen':'#BAD4AA',
-              'coppergreen':'#52796f'
+              'coppergreen':'#52796f',
+              'scarletred':'#FF2400'
           },
           height:{
               '1/4':'25%',
