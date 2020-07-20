@@ -35,11 +35,3 @@
     border-right-color:transparent;
     border-top-color:transparent;
 }
-
-@media(max-width:1025px)
-{
-    .user__image
-    {
-        border-radius:12px;
-    }
-}

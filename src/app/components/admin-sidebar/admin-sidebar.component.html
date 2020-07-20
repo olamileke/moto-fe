@@ -5,31 +5,31 @@
     </div>
 
     <ul class='px-6 text-white text-sm lowercase'>
-        <li [class.shadow]='(!lg && (tabs.requests || tabs.add_vehicle)) || (lg && (tabs.requests))' (click)="switch('requests')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
+        <li [class.shadow]='(!lg && (tabs.requests || tabs.add_vehicle)) || (lg && (tabs.requests))' (click)="switch('requests')" class='transition-all duration-500 ease-in flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-tasks mr-5'></i>
             <p class='m-0'>Requests</p>
         </li>
-        <li [class.shadow]='tabs.new_route' (click)="switch('new_route')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
+        <li [class.shadow]='tabs.new_route' (click)="switch('new_route')" class='transition-all duration-500 ease-in flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-plus mr-5'></i>
             <p class='m-0'>New Route</p>
         </li>
-        <li [class.shadow]='tabs.routes' (click)="switch('routes')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
+        <li [class.shadow]='tabs.routes' (click)="switch('routes')" class='transition-all duration-500 ease-in flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-road mr-5'></i>
             <p class='m-0'>Routes</p>
         </li>
-        <li [class.shadow]='tabs.add_vehicle' (click)="switch('add_vehicle')" class='flex flex-row items-center lg:hidden px-4 py-3 mb-3 rounded cursor-pointer'>
+        <li [class.shadow]='tabs.add_vehicle' (click)="switch('add_vehicle')" class='transition-all duration-500 ease-in flex flex-row items-center lg:hidden px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-plus mr-5'></i>
             <p class='m-0'>New Vehicle</p>
         </li>
-        <li [class.shadow]='tabs.vehicles' (click)="switch('vehicles')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
+        <li [class.shadow]='tabs.vehicles' (click)="switch('vehicles')" class='transition-all duration-500 ease-in flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-car mr-5'></i>
             <p class='m-0'>Vehicles</p>
         </li>
-        <li [class.shadow]='tabs.drivers' (click)="switch('drivers')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
+        <li [class.shadow]='tabs.drivers' (click)="switch('drivers')" class='transition-all duration-500 ease-in flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-user-circle mr-5'></i>
             <p class='m-0'>Drivers</p>
         </li>
-        <li [class.shadow]='tabs.maintenance' (click)="switch('maintenance')" class='flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
+        <li [class.shadow]='tabs.maintenance' (click)="switch('maintenance')" class='transition-all duration-500 ease-in flex flex-row items-center px-4 py-3 mb-3 rounded cursor-pointer'>
             <i class='fa fa-tools mr-5'></i>
             <p class='m-0'>Maintenance</p>
         </li>

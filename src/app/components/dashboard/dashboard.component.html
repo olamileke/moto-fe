@@ -2,7 +2,7 @@
 
 <div class='w-screen min-h-screen' style='background:rgba(0,0,0,0.009)'>
     <div class='grid grid-cols-12'> 
-        <div [class.active]='sidebar' class='transition-all ease-in duration-500 z-40 flex flex-col justify-center lg:justify-start block h-screen pt-16 lg:pt-24 sidebar z-50 bg-coppergreen'>
+        <div [class.active]='sidebar' class='transition-all ease-in duration-500 z-40 flex flex-col justify-center lg:justify-start block h-screen pt-8 sm:pt-16 lg:pt-24 sidebar z-50 bg-coppergreen'>
             <app-sidebar (switchTab)="switchTab($event, null, true)"></app-sidebar>
         </div> 
         <div [ngClass]="{'h-screen':display | async, 'overflow-y-hidden':display | async}" class='col-span-12 main'>
