@@ -30,7 +30,7 @@ export class MaintenanceComponent implements OnInit {
 
   getIssues(page:number) {
     this.admin = JSON.parse(localStorage.getItem('moto_user')).admin;
-    this.issue.get(this.admin, page).subscribe((res:IssuesData) => {
+    this.issue.get(page).subscribe((res:IssuesData) => {
         this.issues = res.data.issues;
         this.dataFetched = true;
         this.activePage = page;

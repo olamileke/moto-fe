@@ -34,7 +34,7 @@ export class ReportComponent implements OnInit {
   maintenancePicture;
 
   checkActiveRequest(): void {
-    this.request_service.get(false, 1, true).subscribe((res:RequestData | RequestsData) => {
+    this.request_service.get(1, true).subscribe((res:RequestData | RequestsData) => {
         this.dataFetched = true;
         if(res.data['request']) {
             this.request = res.data['request'];
@@ -60,7 +60,6 @@ export class ReportComponent implements OnInit {
     const formData = new FormData();
     formData.append('title', this.reportForm.get('title').value);
     formData.append('description', this.reportForm.get('description').value);
-    formData.append('vehicleID', this.request.vehicle._id);
     formData.append('image', this.maintenancePicture);
 
     this.issue.create(formData).subscribe((res:IssueData) => {

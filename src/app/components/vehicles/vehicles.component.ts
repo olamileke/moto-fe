@@ -32,7 +32,7 @@ export class VehiclesComponent implements OnInit {
 
   getVehicles(page:number): void {
     this.admin = JSON.parse(localStorage.getItem('moto_user')).admin;
-    this.vehicle.get(this.admin, page).subscribe((res:VehiclesData) => {
+    this.vehicle.get(page).subscribe((res:VehiclesData) => {
         this.vehicles = res.data.vehicles;
         this.dataFetched = true;
         this.activePage = page;

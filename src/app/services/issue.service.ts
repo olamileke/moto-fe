@@ -15,8 +15,8 @@ export class IssueService {
         return this.http.post<IssueData>(url, data);
     }
 
-    get(admin:boolean, page:number): Observable<IssuesData> {
-        const url = environment.api_url + `issues?admin=${admin}&page=${page}`;
+    get(page:number): Observable<IssuesData> {
+        const url = environment.api_url + `issues?page=${page}`;
         return this.http.get<IssuesData>(url);
     }
 

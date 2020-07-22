@@ -29,7 +29,7 @@ export class RoutesComponent implements OnInit {
 
   getRoutes(page:number): void {
     this.admin = JSON.parse(localStorage.getItem('moto_user')).admin;
-    this.route.get(this.admin, page).subscribe((res:RoutesData) => {
+    this.route.get(page).subscribe((res:RoutesData) => {
         this.routes = res.data.routes;
         this.dataFetched = true;
         this.activePage = page;

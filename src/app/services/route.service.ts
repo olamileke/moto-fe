@@ -15,9 +15,9 @@ export class RouteService {
         return this.http.post<RouteData>(url, data);
     }
 
-    get(admin:boolean, page:number | null = null): Observable<RoutesData> {
+    get(page:number | null = null): Observable<RoutesData> {
         let url;
-        page ? url = environment.api_url + `routes?admin=${admin}&page=${page}` : url = environment.api_url + `routes?admin=${admin}&all=true`;
+        page ? url = environment.api_url + `routes?page=${page}` : url = environment.api_url + `routes?all=true`;
         return this.http.get<RoutesData>(url);
     }
 
