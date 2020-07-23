@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  api_url: 'http://localhost:2000/',
+  api_url: 'https://moto-be.olamileke.vercel.app/',
   per_page:9
 };
