@@ -22,6 +22,11 @@ export class ErrorInterceptor implements HttpInterceptor {
         let displayed = false;
         const url = error.url.split(environment.api_url)[1];
 
+        if(error.status == 0) {
+            this.notif.error('An error ocurred');
+            return of(error as T);
+        }
+
         if(error.status == 401) {
             this.notif.error('not authenticated');
             this.user.logout();

@@ -45,7 +45,10 @@ export class AuthComponent implements OnInit {
         document.URL.includes('admin') ? this.admin = true : this.admin = false;
         this.createSignupForm();
         this.createLoginForm();
+        return;
     }
+
+    this.router.navigate(['/error/404']);
   }
 
   createSignupForm(): void {

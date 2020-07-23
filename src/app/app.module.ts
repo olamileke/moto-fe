@@ -34,6 +34,7 @@ import { ReportComponent } from './components/report/report.component';
 import { MaintenanceComponent } from './components/maintenance/maintenance.component';
 import { ViewImageComponent } from './components/view-image/view-image.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { PasswordResetComponent } from './components/password-reset/password-res
     ReportComponent,
     MaintenanceComponent,
     ViewImageComponent,
-    PasswordResetComponent
+    PasswordResetComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,

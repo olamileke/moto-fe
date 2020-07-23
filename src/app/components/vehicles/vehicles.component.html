@@ -21,7 +21,7 @@
                         <a class='cursor-pointer underline' (click)='patchVehicle(vehicle._id, j, false)'>remove</a>
                     </div>
                     <div *ngIf='!vehicle.active && !vehicle.pending && !determineInOperation(vehicle.reserved_till)'>
-                        <i class='fa fa-exclamation-triangle mr-2' style='color:#EA3C53'></i>
+                        <i class='fa fa-exclamation-triangle text-red-700 mr-2'></i>
                         <a class='cursor-pointer mr-2'>removed</a>
                         <a class='cursor-pointer underline' (click)='patchVehicle(vehicle._id, j, true)'>add</a>
                     </div>

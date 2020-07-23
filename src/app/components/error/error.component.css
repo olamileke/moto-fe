@@ -1,0 +1,36 @@
+@import url('https://emoji-css.afeld.me/emoji.css');
+
+img
+{
+    width:100%;
+}
+
+a
+{
+    left:2px;
+}
+
+@media(max-width:610px)
+{
+    a
+    {
+        left:0;
+    }
+
+    img
+    {
+        top:10vh;
+        left:calc((100vw - 335px)/2);
+        width:335px;
+    }
+}
+
+@media(max-width:576px)
+{
+    img
+    {
+        top:5vh;
+        left:12.5vw;
+        width:75vw;
+    }
+}
