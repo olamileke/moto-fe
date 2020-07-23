@@ -36,8 +36,8 @@
                 <p class='m-0 mt-2 text-xs text-scarletred' *ngIf='loginPassword.dirty && loginPassword.invalid'>password must be at least 8 characters</p>
             </div>
             <div class='flex flex-col'>
-                <button type='submit' class='focus:outline-none text-white bg-coppergreen btn px-3 py-2 rounded mb-2' style='width:max-content;' [disabled]='loginForm.invalid'>login</button>
-                <a class='text-gray-600 cursor-pointer mb-2' (click)="verifyEmail()" style='font-size:0.95em;'>forgot password</a>
+                <button type='submit' class='focus:outline-none text-white bg-coppergreen btn px-3 py-2 rounded mb-3' style='width:max-content;' [disabled]='loginForm.invalid'>login</button>
+                <a class='text-gray-600 cursor-pointer mb-1' (click)="verifyEmail()" style='font-size:0.95em;'>forgot password</a>
                 <a class='text-gray-600 cursor-pointer' (click)="switchAuth('signup')" style='font-size:0.95em;'>signup</a>
             </div>
         </form>

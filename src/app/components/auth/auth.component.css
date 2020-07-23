@@ -1,7 +1,7 @@
 form
 {
     border-color:rgba(0,0,0,0.06);
-    border-radius:10px 50px 50px 10px;
+    border-radius:8px;
 }
 
 img
@@ -18,13 +18,4 @@ input
 input:focus
 {
     background:rgba(0,0,0,0.007);
-    /* border-color:rgba(0,0,0,0.09); */
-}
-
-@media(max-width:1025px)
-{
-    form
-    {
-        border-radius:5px;
-    }
 }
