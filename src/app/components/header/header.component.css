@@ -4,10 +4,6 @@
     min-width:175px;
 }
 
-.user__image
-{
-    border-radius:50%;
-}
 
 .options__parent
 {
@@ -34,4 +30,28 @@
     border-left-color:transparent;
     border-right-color:transparent;
     border-top-color:transparent;
+}
+
+@media(max-width:1025px)
+{
+    img
+    {
+        border-radius:13px;
+    }
+
+    .nav__icon
+    {
+        width:50px;
+        height:50px;
+    }
+}
+
+@media(max-width:576px)
+{
+    .nav__icon
+    {
+        border-radius:3px;
+        width:42px;
+        height:42px;
+    }
 }

@@ -35,6 +35,7 @@ import { MaintenanceComponent } from './components/maintenance/maintenance.compo
 import { ViewImageComponent } from './components/view-image/view-image.component';
 import { PasswordResetComponent } from './components/password-reset/password-reset.component';
 import { ErrorComponent } from './components/error/error.component';
+import { MotoSquareComponent } from './components/moto-square/moto-square.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { ErrorComponent } from './components/error/error.component';
     MaintenanceComponent,
     ViewImageComponent,
     PasswordResetComponent,
-    ErrorComponent
+    ErrorComponent,
+    MotoSquareComponent
   ],
   imports: [
     BrowserModule,

@@ -11,7 +11,7 @@
     <div [class.pb-6]='pages == 1' class='col-span-12 lg:col-start-2 lg:col-end-12 grid grid-cols-12 flex flex-col' *ngIf='routes.length > 0'>
         <div class='col-span-12 bsm:col-span-6 lg:col-span-4 bg-white shadow-lg flex flex-col mx-2 mb-4 p-5' *ngFor='let route of routes; let j = index'>
             <div class='flex flex-row justify-between items-center'>
-                <div class='w-12 h-12 text-white flex flex-row justify-center items-center font-semibold' style='background:#52796f'>
+                <div class='w-12 h-12 text-white flex flex-row justify-center bg-coppergreen items-center font-semibold'>
                     {{ route.name | slice:0:1 }}
                 </div>
                 <div class='flex flex-row mr-5 text-gray-700' *ngIf='admin && route.active'>

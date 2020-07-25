@@ -1,7 +1,7 @@
 
 <div class='py-8 px-4 sm:p-6 sm:py-10 md:px-8 md:py-12 lg:p-6 flex flex-row justify-end md:pr-8 quicksand z-50'>
-    <div (click)='view()' class='z-50 lg:hidden bg-coppergreen w-10 h-10 flex flex-row form__shadow justify-center items-center'>
-        <i class='fa fa-bars text-white'></i>
+    <div (click)='view()' class='z-50 lg:hidden bg-coppergreen nav__icon flex flex-row justify-center items-center'>
+        <i class='fa fa-bars text-white sm:text-xl'></i>
     </div>
     <div class='ml-auto flex flex-row items-center cursor-pointer relative header__main'>
         <img src='{{ user.avatar }}' (click)='toggleOptions()' class='object-cover w-10 h-10 mr-3 lg:rounded-full user__image' #userImage>
