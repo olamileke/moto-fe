@@ -14,7 +14,8 @@ export class Request {
     };
     route:{
         _id:string;
-        name:string
+        from:string;
+        to:string;
     };
     approved:boolean;
     pending:boolean;

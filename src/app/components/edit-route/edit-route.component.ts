@@ -24,10 +24,12 @@ export class EditRouteComponent implements OnInit {
 
   createForm(): void {
     this.editForm = this.fb.group({
-        name:[this.route.name, [Validators.required, Validators.minLength(6)]],
+        from:[this.route.from, [Validators.required, Validators.minLength(3)]],
+        to:[this.route.to, [Validators.required, Validators.minLength(3)]],
+        distance:[this.route.distance, [Validators.required]],
         description:[this.route.description, [Validators.required, Validators.minLength(40)]]
     })
-  }
+  } 
 
   submit(form:FormGroup): void {
     this.rte.edit(form.value, this.route._id).subscribe((res:RouteData) => {
@@ -40,10 +42,14 @@ export class EditRouteComponent implements OnInit {
     this.viewRoute.emit();
   }
 
-  get name(): any {
-    return this.editForm.get('name');
+  get from(): any {
+    return this.editForm.get('from');
   }
 
+  get to(): any {
+    return this.editForm.get('to');
+  }
+  
   get description(): any {
     return this.editForm.get('description');
   }

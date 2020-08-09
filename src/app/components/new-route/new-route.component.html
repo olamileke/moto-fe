@@ -1,6 +1,6 @@
 
-<div class='grid grid-cols-12 quicksand form__container items-center px-6 sm:px-0'>
-    <div class='col-span-12 sm:col-start-2 sm:col-end-12 lg:col-start-3 lg:col-end-10 flex flex-col form__parent'>
+<div class='grid grid-cols-12 quicksand items-center px-6 sm:px-0'>
+    <div class='col-span-12 sm:col-start-2 sm:col-end-12 lg:col-start-3 lg:col-end-10 flex flex-col mt-10 form__parent'>
         <div class='mb-2 bg-white p-5 shadow-md text-gray-600' style='border-color: rgba(0,0,0,0.03);'>
             add a new route 
         </div>
@@ -8,9 +8,18 @@
             <div class='px-6 py-8'>
                 <form [formGroup]='newForm' (ngSubmit)="submit(newForm)">
                     <div class='flex flex-col mb-5'>
-                        <label for='name' class='text-gray-600 text-sm mb-2'>name</label>
-                        <input id='name' formControlName='name' class='input lowercase text-gray-600 focus:outline-none border p-3'>
-                        <p class='text-xs mt-2 text-scarletred' *ngIf='name.dirty && name.invalid'>name must be at least 6 characters</p>
+                        <label for='from' class='text-gray-600 text-sm mb-2'>from</label>
+                        <input id='from' formControlName='from' class='input lowercase text-gray-600 focus:outline-none border p-3'>
+                        <p class='text-xs mt-2 text-scarletred' *ngIf='from.dirty && from.invalid'>route origin must be at least 3 characters</p>
+                    </div>
+                    <div class='flex flex-col mb-5'>
+                        <label for='to' class='text-gray-600 text-sm mb-2'>to</label>
+                        <input id='to' formControlName='to' class='input lowercase text-gray-600 focus:outline-none border p-3'>
+                        <p class='text-xs mt-2 text-scarletred' *ngIf='to.dirty && to.invalid'>route destination must be at least 3 characters</p>
+                    </div>
+                    <div class='flex flex-col mb-5'>
+                        <label for='distance' class='text-gray-600 text-sm mb-2'>distance(kilometres)</label>
+                        <input id='distance' type='number' formControlName='distance' class='input lowercase text-gray-600 focus:outline-none border p-3'>
                     </div>
                     <div class='flex flex-col mb-5'>
                         <label for='description' class='text-gray-600 text-sm mb-2'>short description</label>

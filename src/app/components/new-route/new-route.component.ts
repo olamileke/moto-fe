@@ -20,7 +20,9 @@ export class NewRouteComponent implements OnInit {
 
   createForm(): void {
     this.newForm = this.fb.group({
-        name:['', [Validators.required, Validators.minLength(6)]],
+        from:['', [Validators.required, Validators.minLength(3)]],
+        to:['', [Validators.required, Validators.minLength(3)]],
+        distance:['', [Validators.required]],
         description:['', [Validators.required, Validators.minLength(40)]]
     })
   }
@@ -28,18 +30,19 @@ export class NewRouteComponent implements OnInit {
   submit(form:FormGroup): void {
     this.route.create(form.value).subscribe((res:RouteData) => {
         this.notif.success('Route created successfully');
-        form.reset();
+    form.reset();
     })
   }
 
-  get name(): any {
-    return this.newForm.get('name');
+  get from(): any {
+    return this.newForm.get('from');
   }
 
+  get to(): any {
+    return this.newForm.get('to');
+  }
+  
   get description(): any {
     return this.newForm.get('description');
   }
-
-
-
 }

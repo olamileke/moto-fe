@@ -12,7 +12,7 @@
         <div class='col-span-12 bsm:col-span-6 lg:col-span-4 bg-white shadow-lg flex flex-col mx-2 mb-4 p-5' *ngFor='let route of routes; let j = index'>
             <div class='flex flex-row justify-between items-center'>
                 <div class='w-12 h-12 text-white flex flex-row justify-center bg-coppergreen items-center font-semibold'>
-                    {{ route.name | slice:0:1 }}
+                    <p class='m-0'>{{ route.from | slice:0:1 }}{{ route.to | slice:0:1 }}</p>
                 </div>
                 <div class='flex flex-row mr-5 text-gray-700' *ngIf='admin && route.active'>
                     <a class='m-0 mr-2 underline cursor-pointer' (click)='editRoute(route)'>edit</a>
@@ -24,9 +24,9 @@
                 </div>
             </div>
             <div class='flex flex-col text-gray-800 mt-4'>
-                <p class='m-0'>{{ route.name }}</p>
+                <p class='m-0'>{{ route.from }}-{{ route.to }}</p>
                 <p class='m-0'>{{ route.description }}</p>
-                <p class='m-0'>{{ route.trips }} trips</p> 
+                <p class='m-0'>{{ route.distance }}km distance. {{ route.trips }} trips</p> 
                 <p class='m-0'>{{ getDateString(route.created_at) }}</p>
             </div>
         </div>

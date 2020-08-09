@@ -41,7 +41,7 @@
             <p class='m-0 mt-1 font-semibold' style='font-size:0.9em;'>{{ request.user.name }}</p>
         </div>
         <p class='m-0 mb-1 lowercase'>{{ request.vehicle.model }}. {{ request.vehicle.plate_number }}</p>
-        <p class='m-0 mb-1 lowercase'>{{ request.route.name }}</p>
+        <p class='m-0 mb-1 lowercase'>{{ request.route.from }}-{{ request.route.to }}</p>
         <p class='m-0 lowercase'>till {{ getDateString(request.expires_at) }}</p>
     </div>
 </div>
