@@ -52,10 +52,17 @@ export class VehiclesComponent implements OnInit {
     this.edit.emit(vehicle)
   }
 
-  patchVehicle(id:string, index:number, active:boolean): void {
+  changeVehicleStatus(id:string, index:number, active:boolean): void {
     this.vehicle.patch(id, active).subscribe((res:VehicleData) => {
         this.vehicles[index] = res.data.vehicle;
         active ? this.notif.success('Vehicle added successfully') : this.notif.success('Vehicle removed successfully');
+    })
+  }
+
+  resetMileage(id:string, index:number): void {
+    this.vehicle.patch(id).subscribe((res:VehicleData) => {
+        this.vehicles[index] = res.data.vehicle;
+        this.notif.success('Mileage reset successfully');
     })
   }
 

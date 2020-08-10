@@ -17,6 +17,7 @@ export class Request {
         from:string;
         to:string;
     };
+    distance:number;
     approved:boolean;
     pending:boolean;
     expires_at:string;

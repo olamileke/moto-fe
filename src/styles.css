@@ -76,7 +76,7 @@
 
 @media(max-width:1025px)
 {
-    .no__resource, .form__container
+    .no__resource, .form__container, .form__route__container
     {
         height:calc(100vh - 136px);
     }
@@ -126,6 +126,11 @@
     .no__resource, .form__container
     {
         height:calc(100vh - 104px);
+    }
+
+    .form__route__container
+    {
+        height:unset;
     }
 
     .form__parent

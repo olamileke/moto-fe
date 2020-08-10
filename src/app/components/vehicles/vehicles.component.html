@@ -15,15 +15,16 @@
                     <img src='{{ vehicle.picture }}' class='h-16 w-16 object-cover'>
                      <div (click)='viewImage(vehicle.picture)' class='cursor-pointer absolute top-0 left-0 mr-4 w-16 h-full' style='background:rgba(0,0,0,0.1)'></div>
                 </div>
-                <div class='flex flex-row mr-8' *ngIf='admin'>
+                <div class='flex flex-row mr-4' *ngIf='admin'>
                     <div *ngIf='vehicle.active && !vehicle.pending && !determineInOperation(vehicle.reserved_till)'>
+                        <a (click)='resetMileage(vehicle._id, j)' *ngIf='vehicle.active && !determineInOperation(vehicle.reserved_till) && admin && vehicle.mileage > 50' class='cursor-pointer underline mr-2'>service</a>
                         <a class='cursor-pointer underline mr-2' (click)='editVehicle(vehicle)'>edit</a>
-                        <a class='cursor-pointer underline' (click)='patchVehicle(vehicle._id, j, false)'>remove</a>
+                        <a class='cursor-pointer underline' (click)='changeVehicleStatus(vehicle._id, j, false)'>remove</a>
                     </div>
                     <div *ngIf='!vehicle.active && !vehicle.pending && !determineInOperation(vehicle.reserved_till)'>
                         <i class='fa fa-exclamation-triangle text-red-700 mr-2'></i>
                         <a class='cursor-pointer mr-2'>removed</a>
-                        <a class='cursor-pointer underline' (click)='patchVehicle(vehicle._id, j, true)'>add</a>
+                        <a class='cursor-pointer underline' (click)='changeVehicleStatus(vehicle._id, j, true)'>add</a>
                     </div>
                     <div class='pending request text-black' *ngIf='vehicle.pending'>
                        requested
@@ -40,11 +41,15 @@
             <div class='flex flex-col'>
                 <p class='m-0 mb-1 lowercase font-semibold'>{{ vehicle.model }}</p>
                 <p class='m-0 mb-1'>plate number - {{ vehicle.plate_number }}</p>
-                <p class='m-0 mb-1'>{{ vehicle.trips }} trips</p>
+                <p class='m-0 mb-1'>{{ vehicle.trips }} trips. {{ vehicle.mileage }}km covered</p>
                 <p class='m-0 mb-1'>added {{ getDate(vehicle.created_at) }}</p>
                 <p class='m-0' *ngIf='vehicle.active && determineInOperation(vehicle.reserved_till)'>active till {{ getDate(vehicle.reserved_till) }}</p>
-                <p class='m-0' *ngIf='vehicle.active && !determineInOperation(vehicle.reserved_till) && admin'>
+                <p class='m-0' *ngIf='vehicle.active && !determineInOperation(vehicle.reserved_till) && admin && vehicle.mileage < 50'>
                     available for requesting
+                </p>
+                <p class='m-0' *ngIf='vehicle.active && !determineInOperation(vehicle.reserved_till) && admin && vehicle.mileage > 50'>
+                    <i class='fa fa-exclamation-triangle text-red-700 mx-1'></i>
+                    in need of maintenance
                 </p>
                 <p class='m-0' *ngIf='!vehicle.active'>not available for requesting</p>
             </div>
