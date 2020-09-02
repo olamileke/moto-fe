@@ -6,7 +6,7 @@
             <app-sidebar (switchTab)="switchTab($event, null, true)"></app-sidebar>
         </div> 
         <div [ngClass]="{'h-screen':display | async, 'overflow-y-hidden':display | async}" class='col-span-12 main'>
-            <app-header (sidebar)='toggleSidebar()'></app-header>
+            <app-header (sidebar)='toggleSidebar()'></app-header> 
             <app-all-requests *ngIf='tabs.all_requests'></app-all-requests>
             <app-request *ngIf='tabs.request' (switch)="switchTab($event)" [vehicle]='selectedVehicle'></app-request>
             <app-routes *ngIf='tabs.routes'></app-routes>
