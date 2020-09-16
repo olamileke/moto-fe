@@ -35,7 +35,7 @@ npm install
 
 This will install all the packages defined in the package.json file in the application root.
 
-Navigate to the src/environments directory and set the api_url option to http://localhost:4000 or whatever url the cloned backend is running on.
+Navigate to the src/environments directory and set the api_url option in the environment.prod.ts file to http://localhost:4000 or whatever url the cloned backend is running on.
 
 Still in the terminal, run
 
