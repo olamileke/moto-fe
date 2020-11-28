@@ -9,7 +9,7 @@
     </div>
 
     <div [class.pb-6]='pages == 1' class='col-span-12 lg:col-start-2 lg:col-end-12 grid grid-cols-12 flex flex-col' *ngIf='routes.length > 0'>
-        <div class='col-span-12 bsm:col-span-6 lg:col-span-4 bg-white shadow-lg flex flex-col mx-2 mb-4 p-5' *ngFor='let route of routes; let j = index'>
+        <div class='col-span-12 bsm:col-span-6 lg:col-span-4 bg-white shadow-md flex flex-col mx-2 mb-4 p-5' *ngFor='let route of routes; let j = index'>
             <div class='flex flex-row justify-between items-center'>
                 <div class='w-12 h-12 text-white flex flex-row justify-center bg-coppergreen items-center font-semibold'>
                     <p class='m-0'>{{ route.from | slice:0:1 }}{{ route.to | slice:0:1 }}</p>
